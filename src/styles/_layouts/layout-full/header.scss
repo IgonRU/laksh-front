@@ -1,0 +1,28 @@
+laksh-page-header {
+  .header-row {
+    @include css3-flex-display();
+    @include css3-justify-content(stretch);
+
+    .logo {
+      @include css3-flex-display();
+      @include css3-align-items(center);
+      column-gap: 1rem;
+
+      .icon {
+        width:  8rem;
+        height: 8rem;
+        background: url("/assets/logo-lakshmi-pure.svg") left center no-repeat;
+      }
+      .title {
+        @include css3-flex-display(column);
+        font-family: 'Monly';
+        font-weight: bold;
+        font-size: 2rem;
+        line-height: 1.1;
+        .underline {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}

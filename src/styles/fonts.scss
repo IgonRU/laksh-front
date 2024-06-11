@@ -1,0 +1,14 @@
+@mixin font-face-woff($family, $filename, $style, $weight) {
+  font-family: $family;
+  src: url("/assets/fonts/" + $filename) format('woff2');
+  font-style: $style;
+  font-weight: $weight;
+}
+
+@font-face {
+  @include font-face-woff('Monly', 'Monly-Light.woff', normal, 400);
+}
+
+@font-face {
+  @include font-face-woff('Monly', 'Monly-Bold.woff', bold, 700);
+}

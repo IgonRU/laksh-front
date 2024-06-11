@@ -1,0 +1,17 @@
+igon-responsive-layout {
+  $background-color: #ebe8e6;
+  $desktop-content-max-width: 1250px;
+
+  &.layout-full {
+    @include css3-align-items(center);
+    background-color: $background-color;
+
+    .container-desktop {
+      width: $desktop-content-max-width;
+    }
+
+    @import "header";
+    @import "footer";
+    @import "body";
+  }
+}
