@@ -12,3 +12,7 @@
 @font-face {
   @include font-face-woff('Monly', 'Monly-Bold.woff', bold, 700);
 }
+
+@font-face {
+  @include font-face-woff('TT-CommonPro', 'TT_Commons_Pro_Expanded_Light.woff2', light, 300);
+}

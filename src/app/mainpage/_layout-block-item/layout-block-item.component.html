@@ -1,0 +1,15 @@
+@if (item()) {
+
+  @if (blockType() === 'type1') {
+
+    <laksh-layout-block-item-type1 [item]="item()"></laksh-layout-block-item-type1>
+
+  }
+
+  @if (blockType() === 'type2') {
+
+    <laksh-layout-block-item-type2 [item]="item()"></laksh-layout-block-item-type2>
+
+  }
+
+}

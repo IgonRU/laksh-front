@@ -1,8 +1,21 @@
+@import "colors";
+@import "fonts";
+@import "mixins";
+@import "css3-mixins";
+@import "css3-flexbox";
+
 html {
   font-size: 18px;
 }
 
-@import "fonts";
-@import "css3-mixins";
-@import "css3-flexbox";
+a {
+  color: $color-text-black;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
 @import "_layouts/layouts";
+@import "mainpage/mainpage";

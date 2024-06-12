@@ -1,4 +1,7 @@
 laksh-page-header {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+
   .header-row {
     @include css3-flex-display();
     @include css3-justify-content(stretch);
@@ -23,6 +26,21 @@ laksh-page-header {
           font-size: 1.3rem;
         }
       }
+    }
+
+    .menu {
+      @include css3-flex();
+      @include css3-flex-display();
+      @include css3-align-items(center);
+      @include css3-justify-content(center);
+    }
+
+    .contacts {
+      @include css3-flex-display();
+      @include css3-align-items(center);
+      @include css3-justify-content(center);
+      font-family: 'TT-CommonPro';
+      font-size: 1.2rem;
     }
   }
 }

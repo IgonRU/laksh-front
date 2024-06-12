@@ -1,0 +1,10 @@
+laksh-frontpage-banner {
+  @include css3-flex-display(column);
+  @include css3-align-items(stretch);
+  margin-bottom: 3rem;
+
+  .banner-image {
+    height: 400px;
+    @include background-image-style();
+  }
+}

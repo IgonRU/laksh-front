@@ -1,0 +1,24 @@
+<h2>{{ title() }}</h2>
+
+@if (description()) {
+  <div class="block-description" [innerHTML]="description()"></div>
+}
+
+@if (items().length) {
+
+<ul class="block-items-wrapper">
+
+  @for (item of items(); track item.name) {
+
+    <li>
+      <laksh-layout-block-item
+        [item]="item"
+        [blockType]="blockType()">
+      </laksh-layout-block-item>
+    </li>
+
+  }
+
+</ul>
+
+}

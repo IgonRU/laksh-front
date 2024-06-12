@@ -1,0 +1,14 @@
+laksh-layout-block-item {
+
+  .block-item-image {
+    @include css3-aspect-ratio(2, 1);
+    @include background-image-style();
+    margin-bottom: 0.7rem;
+  }
+
+  .block-item-title {
+    font-size: 1.5rem;
+  }
+
+}
+

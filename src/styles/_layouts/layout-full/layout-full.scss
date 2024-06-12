@@ -10,6 +10,7 @@ igon-responsive-layout {
       width: $desktop-content-max-width;
     }
 
+    @import "header-menu";
     @import "header";
     @import "footer";
     @import "body";

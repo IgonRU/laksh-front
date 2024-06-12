@@ -1,15 +1,15 @@
 <igon-responsive-layout>
 
-  <laksh-page-header class="layout-header"></laksh-page-header>
+  <laksh-page-header
+    [topMenu]="menu"
+    class="layout-header"></laksh-page-header>
 
-  <div class="container-desktop">
-    <section class="body">
-      <h1>Body</h1>
-    </section>
-  </div>
+  <section class="body">
+    <div class="container-desktop">
+      <router-outlet />
+    </div>
+  </section>
 
   <laksh-page-footer class="layout-footer"></laksh-page-footer>
 
 </igon-responsive-layout>
-
-<router-outlet />
