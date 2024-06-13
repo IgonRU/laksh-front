@@ -6,14 +6,15 @@
 
 @if (items().length) {
 
-<ul class="block-items-wrapper">
+<ul class="block-items-wrapper {{ blockType() }}">
 
-  @for (item of items(); track item.name) {
+  @for (item of items(); track item.name; let even = $even) {
 
     <li>
       <laksh-layout-block-item
         [item]="item"
-        [blockType]="blockType()">
+        [blockType]="blockType()"
+        [even]="even">
       </laksh-layout-block-item>
     </li>
 

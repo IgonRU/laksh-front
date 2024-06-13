@@ -10,5 +10,19 @@ laksh-layout-block-item {
     font-size: 1.5rem;
   }
 
+  laksh-layout-block-item-type2 {
+    @include css3-flex-display();
+    @include css3-flex-direction(row-reverse);
+    column-gap: 2rem;
+
+    &.even {
+      @include css3-flex-direction(row);
+    }
+
+    .text-block,
+    .image-block {
+      @include css3-flex();
+    }
+  }
 }
 

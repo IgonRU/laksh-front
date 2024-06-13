@@ -1,6 +1,7 @@
 export class LakshMainpageBlockItem {
   name: string = undefined;
   title: string = undefined;
+  subtitle: string = undefined;
   image: string = undefined;
   route: string = undefined;
   description: string = undefined;

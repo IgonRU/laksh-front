@@ -157,7 +157,7 @@ $useIEFilters: 0;
 // (Apply to container)
 // http://www.mademyday.de/css-height-equals-width-with-pure-css.html
 @mixin css3-aspect-ratio($w: 4, $h: 3) {
-  $ratio: ($h / $w);
+  $ratio: calc($h / $w);
 
   &:before {
     content: "";

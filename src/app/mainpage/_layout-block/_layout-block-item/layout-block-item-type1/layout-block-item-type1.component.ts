@@ -1,5 +1,5 @@
 import {Component, input} from '@angular/core';
-import {LakshMainpageBlockItem} from "../../_classes/mainpage-block-item.class";
+import {LakshMainpageBlockItem} from "../../../_classes/mainpage-block-item.class";
 import {RouterLink} from "@angular/router";
 
 @Component({

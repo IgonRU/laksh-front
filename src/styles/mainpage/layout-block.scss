@@ -13,5 +13,9 @@ laksh-layout-block {
     li {
       list-style: none;
     }
+
+    &.type2 {
+      grid-template-columns: 1fr;
+    }
   }
 }

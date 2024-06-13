@@ -14,16 +14,31 @@ export class LaksBlockServicesComponent {
 
   blocks = [
     new LakshMainpageBlockItem({
-      name: 'novotoksovo',
-      title: 'Новотоксово',
-      image: '/assets/images/block-portfolio/novotoksovo.jpg',
-      route: '/portfolio/novotoksovo',
+      name: 'design',
+      title: 'ПРОЕКТИРОВАНИЕ',
+      image: '/assets/images/block-services/design.jpg',
+      route: '/services/design',
+      description: `<p>Разработаем для Вас:</p>
+                    <ul>
+                        <li>Концептуальный проект</li>
+                        <li>3D визуализацию</li>
+                        <li>Дендропроект</li>
+                        <li>Рабочую документацию</li>
+                    </ul>`
     }),
     new LakshMainpageBlockItem({
-      name: 'dubki',
-      title: 'Дубки',
-      image: '/assets/images/block-portfolio/dubki.jpg',
-      route: '/portfolio/dubki',
+      name: 'implementation',
+      title: 'РЕАЛИЗАЦИЯ',
+      subtitle: 'АВТОРСКИЙ НАДЗОР',
+      image: '/assets/images/block-services/implementation.jpg',
+      route: '/services/implementation',
+      description: `<p>Воплотим в жизнь:</p>
+                    <ul>
+                        <li>Планировку участка, инженерные сети</li>
+                        <li>Беседки, ограждения, МАФы</li>
+                        <li>Высадку растений</li>
+                    </ul>
+                    <p>Или проследим за качеством работ подряждчиками</p>`
     })
   ];
 
