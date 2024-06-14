@@ -1,6 +1,6 @@
 igon-responsive-layout {
   $background-color: #ebe8e6;
-  $desktop-content-max-width: 1250px;
+  $desktop-content-max-width: 1400px;
 
   &.layout-full {
     @include css3-align-items(center);
