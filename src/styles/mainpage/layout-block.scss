@@ -1,5 +1,8 @@
 laksh-layout-block {
-  font-family: 'TT-CommonPro';
+
+  .block-description {
+    margin-bottom: 5rem;
+  }
 
   .block-items-wrapper {
     display: grid;
@@ -10,7 +13,7 @@ laksh-layout-block {
     padding: 0;
     margin: 0 0 2rem 0;
 
-    li {
+    > li {
       list-style: none;
     }
 

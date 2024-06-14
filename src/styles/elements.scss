@@ -1,0 +1,9 @@
+.button {
+  padding: 0.4rem 1.5rem;
+  border-radius: 0;
+  border: 1px solid #000;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

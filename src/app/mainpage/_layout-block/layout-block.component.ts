@@ -15,6 +15,7 @@ export class LakshLayoutBlockComponent {
   title = input<string>('Default Layout Block');
   description = input<string>('');
   items = input<LakshMainpageBlockItem[]>([]);
+  id = input<string>('');
   class = input<string>('default-layout-block');
   blockType = input<'type1' | 'type2'>('type1');
 

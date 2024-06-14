@@ -10,6 +10,18 @@ laksh-layout-block-item {
     font-size: 1.5rem;
   }
 
+  .block-item-subtitle {
+    margin-top: -1.5rem;
+  }
+
+  .block-item-description {
+    margin-bottom: 2rem;
+  }
+
+  .buttons-row {
+
+  }
+
   laksh-layout-block-item-type2 {
     @include css3-flex-display();
     @include css3-flex-direction(row-reverse);

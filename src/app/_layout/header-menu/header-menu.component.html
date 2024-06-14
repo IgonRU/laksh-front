@@ -1,7 +1,9 @@
 @if (menu().length) {
   <ul>
     @for (item of menu(); track item.name) {
-      <li>{{ item.title }}</li>
+      <li>
+        <a [href]="item.route">{{ item.title }}</a>
+      </li>
     }
   </ul>
 }

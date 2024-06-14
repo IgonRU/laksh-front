@@ -22,17 +22,17 @@ export class AppComponent {
     new LakshHeaderMenuItem({
       name: 'portfolio',
       title: 'ПОРТФОЛИО',
-      route: '/portfolio'
+      route: '/#portfolio'
     }),
     new LakshHeaderMenuItem({
       name: 'services',
       title: 'УСЛУГИ',
-      route: '/services'
+      route: '/#services'
     }),
     new LakshHeaderMenuItem({
       name: 'contacts',
       title: 'КОНТАКТЫ',
-      route: '/contacts'
+      route: '/#contacts'
     }),
   ];
 
