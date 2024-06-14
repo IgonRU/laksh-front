@@ -3,14 +3,14 @@ import {LakshPhoneNumberComponent} from "../../_components/phone-number/phone-nu
 import {LakshEmailAddressComponent} from "../../_components/email-address/email-address.component";
 
 @Component({
-  selector: 'laksh-page-footer',
+  selector: 'laksh-block-contacts',
   standalone: true,
   imports: [
     LakshPhoneNumberComponent,
     LakshEmailAddressComponent
   ],
-  templateUrl: './page-footer.component.html'
+  templateUrl: './block-contacts.component.html'
 })
-export class LakshPageFooterComponent {
+export class LakshBlockContactsComponent {
 
 }
