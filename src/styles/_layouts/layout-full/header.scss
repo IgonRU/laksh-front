@@ -16,7 +16,7 @@ laksh-page-header {
     }
 
     .contacts {
-      @include css3-flex-display();
+      @include css3-flex-display(column);
       @include css3-align-items(center);
       @include css3-justify-content(center);
       font-family: 'TT-CommonPro';

@@ -6,11 +6,22 @@
         <span>ЛАКШМИ</span><span class="underline">ЛАНДШАФТНАЯ СТУДИЯ</span>
       </p>
     </div>
-    <div class="menu">
-      <laksh-header-menu [menu]="topMenu()"></laksh-header-menu>
-    </div>
-    <div class="contacts">
-      <span class="phone">+7 995 605-96-12</span>
-    </div>
+    @if (showMenu()) {
+      <div class="menu">
+        <laksh-header-menu [menu]="topMenu()"></laksh-header-menu>
+      </div>
+    }
+    @if (showContacts()) {
+      <div class="contacts">
+        <span class="phone">+7 995 605-96-12</span>
+      </div>
+    }
+    @if (showMenuToggler()) {
+      <div class="menu-toggle">
+        <button mat-button>
+          <mat-icon fontIcon="menu"></mat-icon>
+        </button>
+      </div>
+    }
   </div>
 </div>

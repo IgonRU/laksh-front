@@ -17,8 +17,8 @@ igon-responsive-layout {
       column-gap: 1rem;
 
       .icon {
-        width:  8rem;
-        height: 8rem;
+        @include css3-aspect-ratio(1,1);
+        width: 8rem;
         background-position: left center;
         background-repeat: no-repeat;
       }
@@ -76,3 +76,5 @@ igon-responsive-layout {
     @import "body";
   }
 }
+
+@import "responsive";

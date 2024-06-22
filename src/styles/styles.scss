@@ -1,3 +1,4 @@
+@import "variables";
 @import "colors";
 @import "fonts";
 @import "mixins";
@@ -5,10 +6,19 @@
 @import "css3-flexbox";
 @import "elements";
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 18px;
   font-family: 'TT-CommonPro';
   font-style: normal;
+  min-width: $html-min-width;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  @include css3-text-size-adjust(100%);
+  box-sizing: border-box;
 }
 
 h1, h2, h3 {
