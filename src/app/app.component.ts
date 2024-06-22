@@ -20,6 +20,11 @@ export class AppComponent {
 
   menu: LakshHeaderMenuItem[] = [
     new LakshHeaderMenuItem({
+      name: 'about-us',
+      title: 'О НАС',
+      route: '/#about-us'
+    }),
+    new LakshHeaderMenuItem({
       name: 'portfolio',
       title: 'ПОРТФОЛИО',
       route: '/#portfolio'

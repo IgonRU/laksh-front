@@ -5,11 +5,12 @@ import {LakshFrontpageBannerComponent} from "../../_layout/frontpage-banner/fron
 import {BlockPortfolioComponent} from "../block-portfolio/block-portfolio.component";
 import {LaksBlockServicesComponent} from "../block-services/block-services.component";
 import {LakshBlockContactsComponent} from "../block-contacts/block-contacts.component";
+import {LakshBlockAboutUsComponent} from "../block-about-us/block-about-us.component";
 
 @Component({
   selector: 'laksh-index',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, LakshFrontpageBannerComponent, BlockPortfolioComponent, LaksBlockServicesComponent, LakshBlockContactsComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, LakshFrontpageBannerComponent, BlockPortfolioComponent, LaksBlockServicesComponent, LakshBlockContactsComponent, LakshBlockAboutUsComponent],
   templateUrl: './index.component.html'
 })
 export class LakshIndexComponent {

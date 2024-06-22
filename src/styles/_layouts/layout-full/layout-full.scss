@@ -3,11 +3,12 @@ igon-responsive-layout {
   $desktop-content-max-width: 1400px;
 
   &.layout-full {
-    @include css3-align-items(center);
+    @include css3-align-items(stretch);
     background-color: $background-color;
 
     .container-desktop {
       width: $desktop-content-max-width;
+      align-self: center;
     }
 
     .logo {

@@ -1,4 +1,6 @@
 laksh-page-header {
+  @include css3-flex-display(column);
+  @include css3-align-items(center);
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 

@@ -1,5 +1,7 @@
 laksh-page-footer {
+  @include css3-flex-display(column);
   margin-top: 10rem;
+
   .footer-row {
     @include css3-flex-display();
     @include css3-align-items(center);
