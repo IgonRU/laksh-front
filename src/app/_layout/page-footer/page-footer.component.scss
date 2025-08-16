@@ -1,0 +1,60 @@
+@import "../../../styles/css3-flexbox.scss";
+
+.footer-slogan-row {
+  @include css3-flex-display();
+  column-gap: 2rem;
+  padding: 2rem;
+  
+  .footer-slogan {
+    @include css3-flex();
+  }
+  
+  .logo {
+    .icon {
+      width: 25rem;
+      height: 25rem;
+    }
+  } 
+
+  .footer-slogan {
+    $footer-slogan-font-size: 100px;
+    $footer-slogan-lead-font-size: 24px;
+    $footer-slogan-max-width: 1300px;
+    .mainpage-title {
+        font-size: $footer-slogan-font-size;
+        margin: 0 0 16px;
+        letter-spacing: -0.5px;
+        line-height: 1;
+        transition: font-size 0.3s ease, max-width 0.3s ease;
+      }
+      
+      p.lead {
+        font-size: $footer-slogan-lead-font-size;
+        color: #222;
+        opacity: 0.9;
+        line-height: 1.1;
+        transition: font-size 0.3s ease, max-width 0.3s ease;
+        margin: 0;
+      }
+  }
+}
+
+.footer-contacts {
+    @include css3-flex-display();
+    @include css3-justify-content(stretch);
+    @include css3-align-items(flex-start);
+    column-gap: 4rem;
+    padding: 2rem 4rem;
+
+    .contacts {
+        @include css3-flex-display(column);
+        row-gap: 1rem;
+        font-size: 2rem;
+    }
+
+    .socials {
+        @include css3-flex-display(column);
+        row-gap: 0.5rem;
+        font-size: 1.2rem;
+    }
+}

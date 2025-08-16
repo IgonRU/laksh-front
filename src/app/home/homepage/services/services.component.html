@@ -1,6 +1,7 @@
 <section id="services" aria-label="Услуги студии">
-  <div class="wrap pad-top px">
-    <h2>Услуги</h2>
+  <div class="section-header">
+    <h2 class="section-title">Услуги</h2>
+    <div class="section-sub muted">Наши услуги</div>
   </div>
 
   <div class="svc-row" *ngFor="let service of services" [class.reverse]="service.reverse">
@@ -10,11 +11,13 @@
     </div>
     <div class="svc-text px section-pad">
       <h3>{{ service.title }}</h3>
-      <p>{{ service.description }}</p>
-      <ul class="svc-bullets">
-        <li *ngFor="let bullet of service.bullets">{{ bullet }}</li>
-      </ul>
-      <div class="svc-note">{{ service.note }}</div>
+      <div class="description">
+        <p>{{ service.description }}</p>
+        <ul class="svc-bullets">
+          <li *ngFor="let bullet of service.bullets">{{ bullet }}</li>
+        </ul>
+        <div class="svc-note">{{ service.note }}</div>
+      </div>
     </div>
   </div>
 </section> 

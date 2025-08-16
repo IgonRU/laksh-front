@@ -1,22 +1,29 @@
-<section id="projects" aria-label="Наши проекты">
-  <div class="px">
-    <div class="projects-cap">
-      <h2>Проекты</h2>
-      <div class="projects-sub muted">Выборка реализованных пространств</div>
-    </div>
-    <div class="slider" [style.--cards]="projects.length" [style.--index]="currentIndex">
-      <div class="track">
-        <article class="slide" *ngFor="let project of projects">
-          <div class="img" [style.background-image]="'url(' + project.image + ')'"></div>
-          <div class="shade"></div>
-          <div class="title">{{ project.title }}</div>
-        </article>
+<section id="projects" class="fullscreen-slider" aria-label="Наши проекты">
+  <div class="section-header projects-header">
+    <h2 class="section-title">Проекты</h2>
+    <div class="section-sub muted">Выборка реализованных пространств</div>
+  </div>
+  
+  <div class="slider-dots" role="tablist">
+    <button class="dot" *ngFor="let _ of projects; let i = index" (click)="goTo(i)" [class.active]="i === currentIndex" [attr.aria-selected]="i === currentIndex"></button>
+  </div>
+  
+  <div class="slider-container">
+    <div class="slider-track" [style.transform]="'translateX(-' + (currentIndex * 100) + 'vw)'">
+      <div class="slide" *ngFor="let project of projects; let i = index" [class.active]="i === currentIndex">
+        <div class="slide-image" [style.background-image]="'url(' + project.image + ')'"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <h3 class="slide-title">{{ project.title }}</h3>
+        </div>
       </div>
-      <button class="nav prev" (click)="prev()" [disabled]="currentIndex === 0" aria-label="Предыдущий проект">‹</button>
-      <button class="nav next" (click)="next()" [disabled]="currentIndex === lastIndex" aria-label="Следующий проект">›</button>
-      <div class="dots" role="tablist">
-        <button class="dot" *ngFor="let _ of projects; let i = index" (click)="goTo(i)" [class.active]="i === currentIndex" [attr.aria-selected]="i === currentIndex"></button>
-      </div>
     </div>
+    
+    <button class="nav-button prev" (click)="prev()" [disabled]="currentIndex === 0" aria-label="Предыдущий проект">
+      <span>‹</span>
+    </button>
+    <button class="nav-button next" (click)="next()" [disabled]="currentIndex === lastIndex" aria-label="Следующий проект">
+      <span>›</span>
+    </button>
   </div>
 </section> 

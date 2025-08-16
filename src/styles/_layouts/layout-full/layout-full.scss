@@ -77,6 +77,24 @@ igon-responsive-layout {
       }
     }
 
+    .section-header {
+      position: relative;
+      padding: 2rem;
+      color: #102a14;
+      flex-shrink: 0; // Заголовок не сжимается
+      
+      .section-title {
+        font-size: clamp(2rem, 5vw, 4rem);
+        margin: 0 0 0.5rem;
+        font-weight: 500;
+      }
+      
+      .section-sub {
+        font-size: clamp(1rem, 2vw, 1.5rem);
+        opacity: 0.9;
+      }
+    }
+
     @import "header-menu";
     @import "header";
     @import "footer";

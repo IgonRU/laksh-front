@@ -1,22 +1,28 @@
+<laksh-fixed-background-block [backgroundImage]="backgroundImage()"></laksh-fixed-background-block>
+
 <div class="container-desktop">
-  <div class="footer-row">
-    <laksh-footer-contact></laksh-footer-contact>
-  </div>
-  <div class="footer-row">
+  <div class="footer-row footer-slogan-row">
     <div class="logo lakshmi-named">
       <div class="icon"></div>
     </div>
-    <div class="socials">
-      <div class="contact type-vk">
-        <a href="https://vk.com/club223135240" target="_blank">Группа ВКонтакте</a>
-      </div>
-      <div class="contact type-youtube">
-        <a href="https://youtube.com" target="_blank">Канал Youtube</a>
-      </div>
+    <div class="footer-slogan">
+      <h1 class="mainpage-title">ЛАКШМИ - пространство процветания</h1>
+      <p class="lead"><i>Наши проекты - синергия природы и архитектуры, в которых функциональность и эстетика становятся отражением Вашего образа жизни.</i></p>
     </div>
-    <div class="contacts">
-      <laksh-phone-number></laksh-phone-number>
-      <laksh-email-address></laksh-email-address>
+  </div>
+  <div class="footer-row">
+    <div class="footer-contacts">
+      <div class="contacts">
+        <laksh-phone-number></laksh-phone-number>
+        <laksh-email-address></laksh-email-address>
+        <laksh-contact-whatsapp></laksh-contact-whatsapp>
+      </div>
+      <div class="socials">
+        <laksh-contact-telegram></laksh-contact-telegram>
+        <laksh-contact-vk></laksh-contact-vk>
+        <laksh-contact-youtube></laksh-contact-youtube>
+      </div>
     </div>
   </div>
 </div>
+

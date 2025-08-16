@@ -42,11 +42,12 @@ h2 {
 }
 
 .svc-text h3 {
-  font-size: 32px;
+  font-size: clamp(1.8rem, 4vw, 3rem);
   margin: 0 0 10px;
 }
 
-.svc-text p {
+.svc-text .description {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
   margin: 0 0 14px;
   color: #222;
 }
