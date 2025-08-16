@@ -19,13 +19,17 @@
   .footer-slogan {
     $footer-slogan-font-size: 100px;
     $footer-slogan-lead-font-size: 24px;
-    $footer-slogan-max-width: 1300px;
+    $footer-slogan-max-width: 1000px;
+
+    max-width: $footer-slogan-max-width;
+    
     .mainpage-title {
         font-size: $footer-slogan-font-size;
         margin: 0 0 16px;
         letter-spacing: -0.5px;
-        line-height: 1;
+        line-height: 0.8;
         transition: font-size 0.3s ease, max-width 0.3s ease;
+        margin-bottom: 2rem;
       }
       
       p.lead {
