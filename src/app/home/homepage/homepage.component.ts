@@ -6,6 +6,7 @@ import { HeroComponent } from './hero/hero.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ServicesComponent } from './services/services.component';
 import { AboutComponent } from './about/about.component';
+import { LakshFixedBackgroundBlockComponent } from '../../_components/fixed-background-block/fixed-background-block.component';
 
 @Component({
   selector: 'laksh-homepage',
@@ -16,12 +17,14 @@ import { AboutComponent } from './about/about.component';
     HeroComponent,
     ProjectsComponent,
     ServicesComponent,
-    AboutComponent
-  ],
+    AboutComponent,
+    LakshFixedBackgroundBlockComponent
+],
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
 export class LakshHomepageComponent implements OnInit, AfterViewInit, OnDestroy {
+  heroBackgroundImage = "url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2000&q=60')";
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 

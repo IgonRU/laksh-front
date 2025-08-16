@@ -20,10 +20,5 @@ laksh-page-header {
     .center-menu {
       @include css3-flex();
     }
-
-    .menu {
-      @include css3-justify-content(flex-end);
-    }
-    
   }
 }

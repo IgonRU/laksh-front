@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LakshFixedBackgroundBlockComponent } from "../../../_components/fixed-background-block/fixed-background-block.component";
 
 @Component({
   selector: 'laksh-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LakshFixedBackgroundBlockComponent],
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']
 })

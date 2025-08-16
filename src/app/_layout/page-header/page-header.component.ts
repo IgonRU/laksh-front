@@ -7,6 +7,7 @@ import {MatIcon} from "@angular/material/icon";
 import {NavStickyComponent} from "../nav-sticky/nav-sticky.component";
 import { LakshHeaderCenterMenuComponent } from "./header-conter-menu/header-center-menu.component";
 import { LakshHeaderLangSwitchComponent } from "./header-lang-switch/header-lang-switch.component";
+import { LakshHeaderLogoComponent } from "./header-logo/header-logo.component";
 
 @Component({
   selector: 'laksh-page-header',
@@ -17,7 +18,8 @@ import { LakshHeaderLangSwitchComponent } from "./header-lang-switch/header-lang
     MatIcon,
     NavStickyComponent,
     LakshHeaderCenterMenuComponent,
-    LakshHeaderLangSwitchComponent
+    LakshHeaderLangSwitchComponent,
+    LakshHeaderLogoComponent
 ],
   templateUrl: './page-header.component.html'
 })
