@@ -1,0 +1,20 @@
+<section id="services" aria-label="Услуги студии">
+  <div class="wrap pad-top px">
+    <h2>Услуги</h2>
+  </div>
+
+  <div class="svc-row" *ngFor="let service of services" [class.reverse]="service.reverse">
+    <div class="svc-img" 
+         [style.background-image]="'url(' + service.image + ')'"
+         [attr.aria-label]="service.imageAlt">
+    </div>
+    <div class="svc-text px section-pad">
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.description }}</p>
+      <ul class="svc-bullets">
+        <li *ngFor="let bullet of service.bullets">{{ bullet }}</li>
+      </ul>
+      <div class="svc-note">{{ service.note }}</div>
+    </div>
+  </div>
+</section> 

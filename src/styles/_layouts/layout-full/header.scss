@@ -2,25 +2,28 @@ laksh-page-header {
   @include css3-flex-display(column);
   @include css3-align-items(center);
   padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin-bottom: 1rem;
 
   .header-row {
     @include css3-flex-display();
     @include css3-justify-content(stretch);
+    column-gap: 6rem;
 
-    .menu {
-      @include css3-flex();
+    > * {
       @include css3-flex-display();
       @include css3-align-items(center);
       @include css3-justify-content(center);
     }
 
-    .contacts {
-      @include css3-flex-display(column);
-      @include css3-align-items(center);
-      @include css3-justify-content(center);
-      font-family: 'Arial';
-      font-size: 1.2rem;
+    .center-menu {
+      @include css3-flex();
     }
+
+    .menu {
+      @include css3-justify-content(flex-end);
+    }
+    
   }
 }

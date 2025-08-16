@@ -21,24 +21,37 @@ export class AppComponent {
   menu: LakshHeaderMenuItem[] = [
     new LakshHeaderMenuItem({
       name: 'about-us',
-      title: 'О НАС',
+      title: 'О ландшафтной студии',
       route: '/#about-us'
     }),
+    new LakshHeaderMenuItem({
+      name: 'projects',
+      title: 'Проекты студии',
+      route: '/#projects'
+    }),
+    new LakshHeaderMenuItem({
+      name: 'services',
+      title: 'Услуги компании',
+      route: '/#services'
+    }),
+    new LakshHeaderMenuItem({
+      name: 'contacts',
+      title: 'Как с нами связаться',
+      route: '/#contacts'
+    }),
+  ];
+
+  menuCenter: LakshHeaderMenuItem[] = [
     new LakshHeaderMenuItem({
       name: 'portfolio',
       title: 'ПОРТФОЛИО',
       route: '/#portfolio'
     }),
     new LakshHeaderMenuItem({
-      name: 'services',
-      title: 'УСЛУГИ',
-      route: '/#services'
-    }),
-    new LakshHeaderMenuItem({
-      name: 'contacts',
-      title: 'КОНТАКТЫ',
-      route: '/#contacts'
-    }),
+      name: 'plant',
+      title: 'ПИТОМНИК',
+      route: '/#plant'
+    })
   ];
 
 }

@@ -1,0 +1,173 @@
+// Миксины для адаптивной типографики
+@mixin adaptive-font-size($mobile, $tablet, $large, $xl, $xxl, $xxxl) {
+  // Промежуточные экраны - 800px - 1300px
+  @media (max-width: 1300px) and (min-width: 801px) {
+    font-size: $tablet;
+  }
+
+  // Мобильные устройства - меньше 800px
+  @media (max-width: 800px) {
+    font-size: $mobile;
+  }
+
+  // Большие экраны - больше 1900px
+  @media (min-width: 1900px) {
+    font-size: $large;
+  }
+
+  // Промежуточные большие экраны - больше 2100px
+  @media (min-width: 2100px) {
+    font-size: $xl;
+  }
+
+  // Очень большие экраны - больше 2250px
+  @media (min-width: 2250px) {
+    font-size: $xxl;
+  }
+
+  // Очень большие экраны - больше 2400px
+  @media (min-width: 2400px) {
+    font-size: $xxxl;
+  }
+
+  // Максимально большие экраны - больше 2600px
+  @media (min-width: 2600px) {
+    font-size: $xxxl;
+  }
+}
+
+@mixin adaptive-max-width($mobile, $tablet, $large, $xl, $xxl, $xxxl) {
+  // Промежуточные экраны - 800px - 1300px
+  @media (max-width: 1300px) and (min-width: 801px) {
+    max-width: $tablet;
+  }
+
+  // Мобильные устройства - меньше 800px
+  @media (max-width: 800px) {
+    max-width: $mobile;
+  }
+
+  // Большие экраны - больше 1900px
+  @media (min-width: 1900px) {
+    max-width: $large;
+  }
+
+  // Промежуточные большие экраны - больше 2100px
+  @media (min-width: 2100px) {
+    max-width: $xl;
+  }
+
+  // Очень большие экраны - больше 2250px
+  @media (min-width: 2250px) {
+    max-width: $xxl;
+  }
+
+  // Очень большие экраны - больше 2400px
+  @media (min-width: 2400px) {
+    max-width: $xxxl;
+  }
+
+  // Максимально большие экраны - больше 2600px
+  @media (min-width: 2600px) {
+    max-width: $xxxl;
+  }
+}
+
+.px {
+  padding-left: clamp(16px, 3vw, 48px);
+  padding-right: clamp(16px, 3vw, 48px);
+}
+
+.section-pad {
+  /* Базовые размеры для диапазона 800px - 1900px */
+  padding-top: clamp(40px, 8vw, 80px);
+  padding-bottom: clamp(80px, 12vw, 160px);
+  transition: all 0.3s ease;
+
+  /* Базовые размеры для диапазона 1300px - 1900px */
+  /* max-width остается статичным 1200px в этом диапазоне */
+  h1.mainpage-title {
+    font-size: 90px;
+    margin: 0 0 16px;
+    letter-spacing: -0.5px;
+    max-width: 1200px;
+    line-height: 1;
+    transition: font-size 0.3s ease, max-width 0.3s ease;
+    
+    @include adaptive-font-size(
+      clamp(36px, 6vw, 60px),    // mobile
+      clamp(60px, 7vw, 90px),    // tablet
+      clamp(91px, 5vw, 110px),   // large
+      clamp(111px, 5.5vw, 130px), // xl
+      clamp(131px, 5.8vw, 140px), // xxl
+      clamp(141px, 6vw, 150px)   // xxxl
+    );
+    
+    @include adaptive-max-width(
+      clamp(600px, 85vw, 800px),   // mobile
+      clamp(800px, 80vw, 1200px),  // tablet
+      clamp(1200px, 85vw, 1700px), // large
+      clamp(1200px, 90vw, 1800px), // xl
+      clamp(1200px, 95vw, 1900px), // xxl
+      clamp(1200px, 110vw, 2200px) // xxxl
+    );
+  }
+  
+  p.lead {
+    font-size: 24px;
+    color: #222;
+    opacity: 0.9;
+    line-height: 1.1;
+    max-width: 1200px;
+    transition: font-size 0.3s ease, max-width 0.3s ease;
+    margin: 0;
+    
+    @include adaptive-font-size(
+      clamp(16px, 2vw, 24px),     // mobile
+      clamp(20px, 2.5vw, 24px),   // tablet
+      clamp(24px, 1.8vw, 36px),   // large
+      clamp(28px, 2vw, 40px),     // xl
+      clamp(32px, 2.1vw, 40px),   // xxl
+      clamp(40px, 2.5vw, 52px)    // xxxl
+    );
+    
+    @include adaptive-max-width(
+      clamp(600px, 85vw, 800px),   // mobile
+      clamp(800px, 80vw, 1200px),  // tablet
+      clamp(1200px, 85vw, 1700px), // large
+      clamp(1200px, 90vw, 1800px), // xl
+      clamp(1200px, 95vw, 1900px), // xxl
+      clamp(1200px, 110vw, 2200px) // xxxl
+    );
+  }
+}
+
+section {
+  padding: 0;
+}
+
+/* Оптимизация производительности */
+.section-pad h1.mainpage-title,
+.section-pad p.lead {
+  will-change: font-size;
+  transform: translateZ(0);
+}
+
+
+
+/* Все медиа-запросы теперь в миксинах adaptive-font-size и adaptive-max-width */
+
+/*
+  Использование миксинов:
+  
+  @include adaptive-font-size(mobile, tablet, large, xl, xxl, xxxl);
+  @include adaptive-max-width(mobile, tablet, large, xl, xxl, xxxl);
+  
+  Где каждый параметр соответствует размеру экрана:
+  - mobile: < 800px
+  - tablet: 800px - 1300px
+  - large: 1300px - 1900px (базовый)
+  - xl: 1900px - 2100px
+  - xxl: 2100px - 2250px
+  - xxxl: > 2250px
+*/ 

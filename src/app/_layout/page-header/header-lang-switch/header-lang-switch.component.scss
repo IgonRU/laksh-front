@@ -1,0 +1,31 @@
+:host {
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    a {
+      color: #666;
+      text-decoration: none;
+      font-family: 'Mulish', Arial, sans-serif;
+      font-size: 18px;
+      transition: color 0.3s ease;
+      font-weight: 100;
+      
+      &:hover {
+        color: #333;
+      }
+      
+      &.active {
+        font-weight: 400;
+        color: #333;
+      }
+    }
+    
+    .separator {
+      color: #999;
+      font-size: 14px;
+      font-weight: 100;
+    }
+  }
+}

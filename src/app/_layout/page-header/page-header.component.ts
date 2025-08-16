@@ -4,6 +4,9 @@ import {LakshHeaderMenuItem} from "../header-menu/header-menu-item.class";
 import {IgonResponsiveLayoutService} from "@igon/responsive-layout";
 import {MatButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
+import {NavStickyComponent} from "../nav-sticky/nav-sticky.component";
+import { LakshHeaderCenterMenuComponent } from "./header-conter-menu/header-center-menu.component";
+import { LakshHeaderLangSwitchComponent } from "./header-lang-switch/header-lang-switch.component";
 
 @Component({
   selector: 'laksh-page-header',
@@ -11,13 +14,17 @@ import {MatIcon} from "@angular/material/icon";
   imports: [
     LakshHeaderMenuComponent,
     MatButton,
-    MatIcon
-  ],
+    MatIcon,
+    NavStickyComponent,
+    LakshHeaderCenterMenuComponent,
+    LakshHeaderLangSwitchComponent
+],
   templateUrl: './page-header.component.html'
 })
 export class LakshPageHeaderComponent {
 
   topMenu = input<LakshHeaderMenuItem[]>([]);
+  centerMenu = input<LakshHeaderMenuItem[]>([]);
 
   constructor(private responsiveService: IgonResponsiveLayoutService) {
 

@@ -7,13 +7,16 @@
       </p>
     </div>
     @if (showMenu()) {
+      <div class="center-menu">
+        <laksh-header-center-menu [menu]="centerMenu()"></laksh-header-center-menu>
+      </div>
+    
       <div class="menu">
         <laksh-header-menu [menu]="topMenu()"></laksh-header-menu>
       </div>
-    }
-    @if (showContacts()) {
-      <div class="contacts">
-        <span class="phone">+7 995 605-96-12</span>
+
+      <div class="lang-switch">
+        <laksh-header-lang-switch></laksh-header-lang-switch>
       </div>
     }
     @if (showMenuToggler()) {
@@ -25,3 +28,5 @@
     }
   </div>
 </div>
+
+<laksh-nav-sticky></laksh-nav-sticky>
