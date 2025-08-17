@@ -1,15 +1,34 @@
 @import "../../../styles/css3-flexbox.scss";
 
+.container-desktop {
+  padding: 2rem;
+}
+
+.footer-row {
+  @include css3-flex-display();
+  @include css3-align-items(flex-start);
+  column-gap: 2rem;
+
+  &.footer-slogan-row {
+    @include css3-align-items(center);
+  }
+
+  .legals {
+    color: #666;
+  }
+}
+
 .footer-slogan-row {
   @include css3-flex-display();
-  column-gap: 2rem;
-  padding: 2rem;
+  
   
   .footer-slogan {
     @include css3-flex();
   }
   
   .logo {
+    margin-left: -2rem;
+
     .icon {
       width: 25rem;
       height: 25rem;
@@ -19,7 +38,7 @@
   .footer-slogan {
     $footer-slogan-font-size: 100px;
     $footer-slogan-lead-font-size: 24px;
-    $footer-slogan-max-width: 1000px;
+    $footer-slogan-max-width: 1300px;
 
     max-width: $footer-slogan-max-width;
     
@@ -44,21 +63,62 @@
 }
 
 .footer-contacts {
-    @include css3-flex-display();
-    @include css3-justify-content(stretch);
-    @include css3-align-items(flex-start);
+    @include css3-flex(3);
+    @include css3-flex-display(column);
     column-gap: 4rem;
-    padding: 2rem 4rem;
+    width: 100%;
 
-    .contacts {
-        @include css3-flex-display(column);
-        row-gap: 1rem;
-        font-size: 2rem;
+    h3 {
+        color: #666;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
     }
 
-    .socials {
-        @include css3-flex-display(column);
-        row-gap: 0.5rem;
-        font-size: 1.2rem;
+    .contacts-socials {
+        @include css3-flex-display();
+        @include css3-align-items(flex-start);
+        column-gap: 2rem;
+
+        > * {
+            @include css3-flex(1);
+        }
+
+        .contacts {
+            @include css3-flex-display(column);
+            row-gap: 1rem;
+            font-size: 2rem;
+        }
+    
+        .socials {
+            @include css3-flex-display(column);
+            @include css3-align-items(center);
+            row-gap: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .address {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .privacy {
+            font-size: 1rem;
+            
+            * {
+                color: #666;
+            }
+
+            > p {
+                margin: 0;
+            }
+        }
     }
+
+    
+
+}
+
+.feedback-form {
+    @include css3-flex(2);
+    min-width: 0; // Позволяет flex элементу сжиматься
 }

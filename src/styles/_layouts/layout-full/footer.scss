@@ -1,38 +1,4 @@
 laksh-page-footer {
   @include css3-flex-display(column);
   margin-top: 10rem;
-
-  .footer-row {
-    @include css3-flex-display();
-    @include css3-align-items(center);
-    column-gap: 2rem;
-
-    .logo {
-      .icon {
-        width: 6rem;
-        height: 6rem;
-      }
-    }
-
-    .socials {
-      @include css3-flex();
-      @include css3-flex-display();
-      @include css3-justify-content(center);
-      column-gap: 2rem;
-
-      .contact {
-        padding: 0.3rem 0 0.3rem 2.7rem;
-        line-height: 1;
-
-        &.type-vk {
-          padding-left: 2rem;
-        }
-      }
-    }
-
-    .contacts {
-      @include css3-flex-display(column);
-      row-gap: 0.3rem;
-    }
-  }
 }
