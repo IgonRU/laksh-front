@@ -1,9 +1,9 @@
 :host {
   .menu-columns {
     display: flex;
-    gap: 6rem;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
+    gap: 3rem;
     
     .column {
       display: flex;
@@ -23,5 +23,12 @@
         }
       }
     }
+    
+    // Адаптивность для экранов менее 1600px
+    // @media (max-width: 1599px) {
+    //   flex-direction: column;
+    //   gap: 0.5rem;
+      
+    // }
   }
 }

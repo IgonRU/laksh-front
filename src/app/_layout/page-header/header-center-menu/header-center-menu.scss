@@ -46,6 +46,11 @@
                 }
             }
         }
+        // Адаптивность для экранов менее 1350px
+        // @media (max-width: 1350px) {
+        //     flex-direction: column;
+        //     gap: 1rem;
+        // }
     }
 }
 

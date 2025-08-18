@@ -20,7 +20,7 @@ igon-responsive-layout {
 
       .icon {
         @include css3-aspect-ratio(1,1);
-        width: clamp(6rem, 8vw, 10rem);
+        width: 15rem;
         background-position: left center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -31,12 +31,12 @@ igon-responsive-layout {
         @include css3-flex-display(column);
         font-family: 'Monly';
         font-weight: bold;
-        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        font-size: 3rem;
         line-height: 1.1;
         transition: font-size 0.3s ease;
         
         .underline {
-          font-size: clamp(1rem, 1.8vw, 1.25rem);
+          font-size: 1.5rem;
           transition: font-size 0.3s ease;
         }
       }

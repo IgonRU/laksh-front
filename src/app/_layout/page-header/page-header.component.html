@@ -1,11 +1,10 @@
 <div class="container-desktop">
   <div class="header-row">
     <laksh-header-logo></laksh-header-logo>
-    @if (showMenu()) {
-      <div class="center-menu">
-        <laksh-header-center-menu [menu]="centerMenu()"></laksh-header-center-menu>
-      </div>
-    
+    <div class="center-menu">
+      <laksh-header-center-menu [menu]="centerMenu()"></laksh-header-center-menu>
+    </div>
+    <!-- @if (showMenu()) { -->
       <div class="menu">
         <laksh-header-menu [menu]="topMenu()"></laksh-header-menu>
       </div>
@@ -13,7 +12,7 @@
       <div class="lang-switch">
         <laksh-header-lang-switch></laksh-header-lang-switch>
       </div>
-    }
+    <!-- } -->
     @if (showMenuToggler()) {
       <div class="menu-toggle">
         <button mat-button>

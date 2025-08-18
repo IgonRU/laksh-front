@@ -8,17 +8,12 @@ laksh-page-header {
 
   .header-row {
     @include css3-flex-display();
-    @include css3-justify-content(stretch);
-    column-gap: 6rem;
+    @include css3-justify-content(space-between);
 
     > * {
       @include css3-flex-display();
       @include css3-align-items(center);
       @include css3-justify-content(center);
-    }
-
-    .center-menu {
-      @include css3-flex();
     }
   }
 }
