@@ -17,6 +17,28 @@
     color: #666;
     margin-top: 2rem;
   }
+
+  .footer-contacts-row {
+    @include css3-flex-display();
+    @include css3-align-items(stretch);
+  }
+
+  @media (max-width: 550px) {
+    @include css3-flex-direction(column);
+
+    > * {
+      text-align: center;
+    }
+
+    &.footer-contacts-row {
+      @include css3-flex-direction(column-reverse);
+      row-gap: 2rem;
+    }
+
+    .bottom-contact-list.contacts {
+      margin-bottom: 2rem;
+    }
+  }
 }
 
 .footer-slogan-row {
@@ -55,7 +77,6 @@
 
     .icon {
       width: 25rem;
-      height: 25rem;
     }
   }
 
@@ -93,16 +114,22 @@
 
   @media (max-width: 550px) {
     .footer-slogan {
+      margin-bottom: 2rem;
+
       .mainpage-title {
         font-size: 50px;
+        margin-bottom: 1rem;
+      }
+
+      p.lead {
+        font-size: 18px;
       }
     }
-  }
-}
 
-.footer-contacts-row {
-  @include css3-flex-display();
-  @include css3-align-items(stretch);
+    .logo {
+      margin-left: 0;
+    }
+  }
 }
 
 .footer-contacts {
@@ -158,6 +185,10 @@
       a {
         color: #666;
         text-decoration: none;
+      }
+
+      @media (max-width: 550px) {
+        row-gap: 0;
       }
     }
 

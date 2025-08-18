@@ -8,6 +8,7 @@
 
 * {
   box-sizing: border-box;
+  touch-action: pan-y;
 }
 
 body {
@@ -23,7 +24,6 @@ html {
   font-size: 18px;
   font-family: 'Arial';
   font-style: normal;
-  min-width: $html-min-width;
   overflow-x: hidden;
   overflow-y: scroll;
   @include css3-text-size-adjust(100%);

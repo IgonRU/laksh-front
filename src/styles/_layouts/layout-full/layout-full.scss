@@ -3,6 +3,7 @@ igon-responsive-layout {
   $desktop-content-max-width: 1400px;
   overflow-x: hidden;
   width: 100%;
+  touch-action: pan-y;
 
   &.layout-full {
     @include css3-align-items(stretch);
@@ -13,12 +14,10 @@ igon-responsive-layout {
     }
 
     .container-desktop {
-      width: 1920px;
+      width: 100%;
+      max-width: 1920px;
       align-self: center;
-
-      @media (max-width: 2000px) {
-        width: 100%;
-      }
+      overflow-x: hidden;
 
       @media (max-width: 550px) {
         padding-left: 0.5rem;

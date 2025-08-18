@@ -53,16 +53,16 @@ body {
     }
 
 
-    laksh-page-footer {
-      .footer-row {
-        @include css3-flex-direction(column);
-        row-gap: 1rem;
-        font-size: 0.8rem;
+    // laksh-page-footer {
+    //   .footer-row {
+    //     @include css3-flex-direction(column);
+    //     row-gap: 1rem;
+    //     font-size: 0.8rem;
 
-        > * {
-          text-align: center;
-        }
-      }
-    }
+    //     > * {
+    //       text-align: center;
+    //     }
+    //   }
+    // }
   }
 }
