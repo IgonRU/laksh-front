@@ -8,9 +8,22 @@ igon-responsive-layout {
     @include css3-align-items(stretch);
     background-color: $background-color;
 
+    .container-desktop-parent {
+      @include css3-flex-display(column);
+    }
+
     .container-desktop {
-      width: 100%;
+      width: 1920px;
       align-self: center;
+
+      @media (max-width: 2000px) {
+        width: 100%;
+      }
+
+      @media (max-width: 550px) {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
     }
 
     .logo {
@@ -34,6 +47,7 @@ igon-responsive-layout {
         font-size: 3rem;
         line-height: 1.1;
         transition: font-size 0.3s ease;
+        margin: 0;
         
         .underline {
           font-size: 1.5rem;
@@ -92,6 +106,17 @@ igon-responsive-layout {
       .section-sub {
         font-size: clamp(1rem, 2vw, 1.5rem);
         opacity: 0.9;
+      }
+
+      @media (max-width: 550px) {
+        .section-title {
+          font-size: clamp(1.5rem, 6vw, 2.5rem);
+        }
+        
+        .projects-sub {
+          font-size: clamp(0.875rem, 3vw, 1.25rem);
+        }
+        padding: 1rem 0.5rem;
       }
     }
 

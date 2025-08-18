@@ -24,11 +24,18 @@
       }
     }
     
-    // Адаптивность для экранов менее 1600px
-    // @media (max-width: 1599px) {
-    //   flex-direction: column;
-    //   gap: 0.5rem;
-      
-    // }
+    //Адаптивность для экранов менее 1500px
+    @media (max-width: 1499px) {
+      flex-direction: column;
+      gap: 0.25rem;
+
+      .column {
+        gap: 0.25rem;
+        a {
+          font-size: 16px;
+        }
+      }
+    }
   }
+  
 }

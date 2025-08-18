@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { LakshHeaderMenuItem } from '../../header-menu/header-menu-item.class';
+import { LakshHeaderMenuItem } from '../header-menu/header-menu-item.class';
 
 @Component({
   selector: 'laksh-header-center-menu',

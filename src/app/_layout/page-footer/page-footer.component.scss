@@ -15,27 +15,16 @@
 
   .legals {
     color: #666;
+    margin-top: 2rem;
   }
 }
 
 .footer-slogan-row {
   @include css3-flex-display();
-  
-  
+
   .footer-slogan {
     @include css3-flex();
-  }
-  
-  .logo {
-    margin-left: -2rem;
 
-    .icon {
-      width: 25rem;
-      height: 25rem;
-    }
-  } 
-
-  .footer-slogan {
     $footer-slogan-font-size: 100px;
     $footer-slogan-lead-font-size: 24px;
     $footer-slogan-max-width: 1300px;
@@ -60,6 +49,60 @@
         margin: 0;
       }
   }
+  
+  .logo {
+    margin-left: -2rem;
+
+    .icon {
+      width: 25rem;
+      height: 25rem;
+    }
+  }
+
+  @media (max-width: 1300px) {
+    .footer-slogan {
+      .mainpage-title {
+        font-size: 70px;
+      }
+    }
+
+    .logo {
+      margin-left: -2rem;
+  
+      .icon {
+        width: 20rem;
+      }
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .footer-slogan {
+      .mainpage-title {
+        font-size: 50px;
+      }
+    }
+
+    .logo {
+      margin-left: -2rem;
+  
+      .icon {
+        width: 15rem;
+      }
+    }
+  }
+
+  @media (max-width: 550px) {
+    .footer-slogan {
+      .mainpage-title {
+        font-size: 50px;
+      }
+    }
+  }
+}
+
+.footer-contacts-row {
+  @include css3-flex-display();
+  @include css3-align-items(stretch);
 }
 
 .footer-contacts {
@@ -68,53 +111,59 @@
     column-gap: 4rem;
     width: 100%;
 
-    h3 {
-        color: #666;
+    .bottom-contact-list {
+      @include css3-flex-display(column);
+      margin-bottom: 1rem;
+
+      h3 {
         font-size: 1.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .list {
+        @include css3-flex-display(column);
+        row-gap: 0.25rem;
+        font-size: 1.2rem;
+  
+        p {
+          font-size: 1rem;
+          margin: 0;
+        }
+      }
+    }
+
+    .messengers-socials {
+      @include css3-flex-display();
+      gap: 2rem;
+      margin-bottom: 2rem;
+
+      > * {
+        @include css3-flex(1);
+      }
     }
 
     .contacts-socials {
-        @include css3-flex-display();
-        @include css3-align-items(flex-start);
-        column-gap: 2rem;
-
-        > * {
-            @include css3-flex(1);
-        }
-
-        .contacts {
-            @include css3-flex-display(column);
-            row-gap: 1rem;
-            font-size: 2rem;
-        }
-    
-        .socials {
-            @include css3-flex-display(column);
-            @include css3-align-items(center);
-            row-gap: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .address {
-            margin-top: 2rem;
-            font-size: 1.2rem;
-        }
-
-        .privacy {
-            font-size: 1rem;
-            
-            * {
-                color: #666;
-            }
-
-            > p {
-                margin: 0;
-            }
-        }
+      @include css3-flex(1);
     }
 
-    
+    .privacy {
+      @include css3-flex-display(column);
+      row-gap: 0.5rem;
+
+      p {
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      a {
+        color: #666;
+        text-decoration: none;
+      }
+    }
+
+    @media (max-width: 1300px) {
+      @include css3-flex(2);
+    }    
 
 }
 

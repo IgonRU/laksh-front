@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import {IgonResponsiveLayoutComponent} from "@igon/responsive-layout";
 import {LakshPageFooterComponent} from "./_layout/page-footer/page-footer.component";
 import {LakshPageHeaderComponent} from "./_layout/page-header/page-header.component";
-import {LakshHeaderMenuItem} from "./_layout/header-menu/header-menu-item.class";
+import {LakshHeaderMenuItem} from "./_layout/page-header/header-menu/header-menu-item.class";
 
 @Component({
   selector: 'app-root',

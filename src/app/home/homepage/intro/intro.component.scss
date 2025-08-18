@@ -30,4 +30,27 @@
     transition: font-size 0.3s ease, max-width 0.3s ease;
     margin: 0;
   }
+
+  @media (max-width: 550px) {
+    $intro-padding-top: 1rem;
+    $intro-padding-bottom: 2rem;
+    $intro-padding-sides: 0;
+    $intro-title-font-size: 50px;
+    $intro-title-lead-font-size: 16px;
+
+    padding-top: $intro-padding-top;
+    padding-bottom: $intro-padding-bottom;
+    padding-left: $intro-padding-sides;
+    padding-right: $intro-padding-sides;
+    max-width: $intro-title-max-width;
+
+    h1.mainpage-title {
+      font-size: $intro-title-font-size;
+      line-height: 0.8;
+    }
+
+    p.lead {
+      font-size: $intro-title-lead-font-size;
+    }
+  }
 }

@@ -2,7 +2,7 @@ body {
   &.media-handset,
   &.media-tablet {
     igon-responsive-layout {
-      padding: $responsive-handset-layout-padding;
+      padding: 0;
     }
 
     .container-desktop {

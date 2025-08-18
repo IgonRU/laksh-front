@@ -1,6 +1,6 @@
 import {Component, input} from '@angular/core';
-import {LakshHeaderMenuComponent} from "../header-menu/header-menu.component";
-import {LakshHeaderMenuItem} from "../header-menu/header-menu-item.class";
+import {LakshHeaderMenuComponent} from "./header-menu/header-menu.component";
+import {LakshHeaderMenuItem} from "./header-menu/header-menu-item.class";
 import {IgonResponsiveLayoutService} from "@igon/responsive-layout";
 import {MatButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
