@@ -46,13 +46,37 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   currentIndex = 0;
-  get lastIndex(): number { return Math.max(0, this.projects.length - 1); }
+  get lastIndex(): number { return this.projects.length - 1; }
 
-  prev(): void { this.currentIndex = Math.max(0, this.currentIndex - 1); }
-  next(): void { this.currentIndex = Math.min(this.lastIndex, this.currentIndex + 1); }
-  goTo(index: number): void { this.currentIndex = Math.max(0, Math.min(this.lastIndex, index)); }
+  // Круговое пролистывание
+  prev(): void { 
+    if (this.currentIndex === 0) {
+      this.currentIndex = this.lastIndex;
+    } else {
+      this.currentIndex--;
+    }
+  }
+  
+  next(): void { 
+    if (this.currentIndex === this.lastIndex) {
+      this.currentIndex = 0;
+    } else {
+      this.currentIndex++;
+    }
+  }
+  
+  goTo(index: number): void { 
+    this.currentIndex = index; 
+  }
 
   private intersectionObserver?: IntersectionObserver;
+  
+  // Переменные для drag & drop и touch
+  private isDragging = false;
+  private startX = 0;
+  private currentX = 0;
+  private dragOffset = 0;
+  private sliderTrack?: HTMLElement;
 
   ngOnInit(): void {
     // Инициализация
@@ -61,6 +85,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.setupIntersectionObserver();
+      this.setupDragAndTouch();
     }
   }
 
@@ -68,6 +93,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.intersectionObserver) {
       this.intersectionObserver.disconnect();
     }
+    this.cleanupDragAndTouch();
   }
 
   private setupIntersectionObserver(): void {
@@ -90,5 +116,125 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
     );
 
     this.intersectionObserver.observe(this.elementRef.nativeElement);
+  }
+
+  private setupDragAndTouch(): void {
+    this.sliderTrack = this.elementRef.nativeElement.querySelector('.slider-track');
+    if (!this.sliderTrack) return;
+
+    // Mouse events
+    this.sliderTrack.addEventListener('mousedown', this.onMouseDown.bind(this));
+    document.addEventListener('mousemove', this.onMouseMove.bind(this));
+    document.addEventListener('mouseup', this.onMouseUp.bind(this));
+
+    // Touch events
+    this.sliderTrack.addEventListener('touchstart', this.onTouchStart.bind(this), { passive: false });
+    this.sliderTrack.addEventListener('touchmove', this.onTouchMove.bind(this), { passive: false });
+    this.sliderTrack.addEventListener('touchend', this.onTouchEnd.bind(this), { passive: false });
+
+    // Prevent context menu
+    this.sliderTrack.addEventListener('contextmenu', (e) => e.preventDefault());
+  }
+
+  private cleanupDragAndTouch(): void {
+    if (this.sliderTrack) {
+      this.sliderTrack.removeEventListener('mousedown', this.onMouseDown.bind(this));
+      document.removeEventListener('mousemove', this.onMouseMove.bind(this));
+      document.removeEventListener('mouseup', this.onMouseUp.bind(this));
+      
+      this.sliderTrack.removeEventListener('touchstart', this.onTouchStart.bind(this));
+      this.sliderTrack.removeEventListener('touchmove', this.onTouchMove.bind(this));
+      this.sliderTrack.removeEventListener('touchend', this.onTouchEnd.bind(this));
+    }
+  }
+
+  // Mouse event handlers
+  private onMouseDown(event: MouseEvent): void {
+    this.isDragging = true;
+    this.startX = event.clientX;
+    this.currentX = this.startX;
+    this.dragOffset = 0;
+    this.sliderTrack?.classList.add('dragging');
+  }
+
+  private onMouseMove(event: MouseEvent): void {
+    if (!this.isDragging) return;
+    
+    this.currentX = event.clientX;
+    this.dragOffset = this.currentX - this.startX;
+    
+    if (this.sliderTrack) {
+      const translateX = -(this.currentIndex * 100) + (this.dragOffset / window.innerWidth * 100);
+      this.sliderTrack.style.transform = `translateX(${translateX}vw)`;
+      this.sliderTrack.style.transition = 'none';
+    }
+  }
+
+  private onMouseUp(): void {
+    if (!this.isDragging) return;
+    
+    this.isDragging = false;
+    this.sliderTrack?.classList.remove('dragging');
+    
+    if (this.sliderTrack) {
+      this.sliderTrack.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    }
+    
+    this.handleDragEnd();
+  }
+
+  // Touch event handlers
+  private onTouchStart(event: TouchEvent): void {
+    this.isDragging = true;
+    this.startX = event.touches[0].clientX;
+    this.currentX = this.startX;
+    this.dragOffset = 0;
+    this.sliderTrack?.classList.add('dragging');
+  }
+
+  private onTouchMove(event: TouchEvent): void {
+    if (!this.isDragging) return;
+    
+    event.preventDefault();
+    this.currentX = event.touches[0].clientX;
+    this.dragOffset = this.currentX - this.startX;
+    
+    if (this.sliderTrack) {
+      const translateX = -(this.currentIndex * 100) + (this.dragOffset / window.innerWidth * 100);
+      this.sliderTrack.style.transform = `translateX(${translateX}vw)`;
+      this.sliderTrack.style.transition = 'none';
+    }
+  }
+
+  private onTouchEnd(): void {
+    if (!this.isDragging) return;
+    
+    this.isDragging = false;
+    this.sliderTrack?.classList.remove('dragging');
+    
+    if (this.sliderTrack) {
+      this.sliderTrack.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    }
+    
+    this.handleDragEnd();
+  }
+
+  private handleDragEnd(): void {
+    const threshold = window.innerWidth * 0.3; // 30% от ширины экрана
+    
+    if (Math.abs(this.dragOffset) > threshold) {
+      if (this.dragOffset > 0) {
+        this.prev(); // Свайп вправо - предыдущий
+      } else {
+        this.next(); // Свайп влево - следующий
+      }
+    } else {
+      // Возвращаемся к текущему слайду
+      if (this.sliderTrack) {
+        this.sliderTrack.style.transform = `translateX(-${this.currentIndex * 100}vw)`;
+      }
+    }
+    
+    this.dragOffset = 0;
   }
 }
