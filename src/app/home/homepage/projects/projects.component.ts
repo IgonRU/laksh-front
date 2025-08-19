@@ -6,6 +6,8 @@ export interface Project {
   id: number;
   title: string;
   image: string;
+  description: string;
+  route: string;
 }
 
 @Component({
@@ -26,21 +28,29 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       id: 1,
       title: 'Проект 1 — Сосновый бор',
+      description: 'Описание проекта 1',
+      route: '/projects/1',
       image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=70'
     },
     {
       id: 2,
       title: 'Проект 2 — Береговая линия',
+      description: 'Описание проекта 2',
+      route: '/projects/2',
       image: 'https://images.unsplash.com/photo-1459664018906-085c36f472af?auto=format&fit=crop&w=2400&q=70'
     },
     {
       id: 3,
       title: 'Проект 3 — Дача у озера',
+      description: 'Описание проекта 3',
+      route: '/projects/3',
       image: 'https://images.unsplash.com/photo-1493246318656-5bfd4cfb29b8?auto=format&fit=crop&w=2400&q=60'
     },
     {
       id: 4,
       title: 'Проект 4 — Каменный сад',
+      description: 'Описание проекта 4',
+      route: '/projects/4',
       image: 'https://images.unsplash.com/photo-1495954484750-af469f2f9be5?auto=format&fit=crop&w=2400&q=60'
     }
   ];
@@ -74,8 +84,12 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
   // Переменные для drag & drop и touch
   private isDragging = false;
   private startX = 0;
+  private startY = 0;
   private currentX = 0;
-  private dragOffset = 0;
+  private currentY = 0;
+  private dragOffsetX = 0;
+  private dragOffsetY = 0;
+  private isHorizontalSwipe = false;
   private sliderTrack?: HTMLElement;
 
   ngOnInit(): void {
@@ -152,8 +166,12 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
   private onMouseDown(event: MouseEvent): void {
     this.isDragging = true;
     this.startX = event.clientX;
+    this.startY = event.clientY;
     this.currentX = this.startX;
-    this.dragOffset = 0;
+    this.currentY = this.startY;
+    this.dragOffsetX = 0;
+    this.dragOffsetY = 0;
+    this.isHorizontalSwipe = false;
     this.sliderTrack?.classList.add('dragging');
   }
 
@@ -161,10 +179,18 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
     if (!this.isDragging) return;
     
     this.currentX = event.clientX;
-    this.dragOffset = this.currentX - this.startX;
+    this.currentY = event.clientY;
+    this.dragOffsetX = this.currentX - this.startX;
+    this.dragOffsetY = this.currentY - this.startY;
     
-    if (this.sliderTrack) {
-      const translateX = -(this.currentIndex * 100) + (this.dragOffset / window.innerWidth * 100);
+    // Определяем направление свайпа только после минимального движения
+    if (!this.isHorizontalSwipe && Math.abs(this.dragOffsetX) > 10 || Math.abs(this.dragOffsetY) > 10) {
+      this.isHorizontalSwipe = Math.abs(this.dragOffsetX) > Math.abs(this.dragOffsetY);
+    }
+    
+    // Если это горизонтальный свайп, обрабатываем слайдер
+    if (this.isHorizontalSwipe && this.sliderTrack) {
+      const translateX = -(this.currentIndex * 100) + (this.dragOffsetX / window.innerWidth * 100);
       this.sliderTrack.style.transform = `translateX(${translateX}vw)`;
       this.sliderTrack.style.transition = 'none';
     }
@@ -187,22 +213,37 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
   private onTouchStart(event: TouchEvent): void {
     this.isDragging = true;
     this.startX = event.touches[0].clientX;
+    this.startY = event.touches[0].clientY;
     this.currentX = this.startX;
-    this.dragOffset = 0;
+    this.currentY = this.startY;
+    this.dragOffsetX = 0;
+    this.dragOffsetY = 0;
+    this.isHorizontalSwipe = false;
     this.sliderTrack?.classList.add('dragging');
   }
 
   private onTouchMove(event: TouchEvent): void {
     if (!this.isDragging) return;
     
-    event.preventDefault();
     this.currentX = event.touches[0].clientX;
-    this.dragOffset = this.currentX - this.startX;
+    this.currentY = event.touches[0].clientY;
+    this.dragOffsetX = this.currentX - this.startX;
+    this.dragOffsetY = this.currentY - this.startY;
     
-    if (this.sliderTrack) {
-      const translateX = -(this.currentIndex * 100) + (this.dragOffset / window.innerWidth * 100);
-      this.sliderTrack.style.transform = `translateX(${translateX}vw)`;
-      this.sliderTrack.style.transition = 'none';
+    // Определяем направление свайпа только после минимального движения
+    if (!this.isHorizontalSwipe && Math.abs(this.dragOffsetX) > 10 || Math.abs(this.dragOffsetY) > 10) {
+      this.isHorizontalSwipe = Math.abs(this.dragOffsetX) > Math.abs(this.dragOffsetY);
+    }
+    
+    // Если это горизонтальный свайп, предотвращаем прокрутку страницы
+    if (this.isHorizontalSwipe) {
+      event.preventDefault();
+      
+      if (this.sliderTrack) {
+        const translateX = -(this.currentIndex * 100) + (this.dragOffsetX / window.innerWidth * 100);
+        this.sliderTrack.style.transform = `translateX(${translateX}vw)`;
+        this.sliderTrack.style.transition = 'none';
+      }
     }
   }
 
@@ -220,21 +261,27 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private handleDragEnd(): void {
-    const threshold = window.innerWidth * 0.3; // 30% от ширины экрана
-    
-    if (Math.abs(this.dragOffset) > threshold) {
-      if (this.dragOffset > 0) {
-        this.prev(); // Свайп вправо - предыдущий
+    // Обрабатываем только горизонтальные свайпы
+    if (this.isHorizontalSwipe) {
+      const threshold = window.innerWidth * 0.2; // 20% от ширины экрана
+      
+      if (Math.abs(this.dragOffsetX) > threshold) {
+        if (this.dragOffsetX > 0) {
+          this.prev(); // Свайп вправо - предыдущий
+        } else {
+          this.next(); // Свайп влево - следующий
+        }
       } else {
-        this.next(); // Свайп влево - следующий
-      }
-    } else {
-      // Возвращаемся к текущему слайду
-      if (this.sliderTrack) {
-        this.sliderTrack.style.transform = `translateX(-${this.currentIndex * 100}vw)`;
+        // Возвращаемся к текущему слайду
+        if (this.sliderTrack) {
+          this.sliderTrack.style.transform = `translateX(-${this.currentIndex * 100}vw)`;
+        }
       }
     }
     
-    this.dragOffset = 0;
+    // Сбрасываем состояние
+    this.dragOffsetX = 0;
+    this.dragOffsetY = 0;
+    this.isHorizontalSwipe = false;
   }
 }

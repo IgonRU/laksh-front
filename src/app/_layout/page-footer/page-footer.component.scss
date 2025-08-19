@@ -169,6 +169,11 @@
       > * {
         @include css3-flex(1);
       }
+
+      @media (max-width: 1000px) {
+        @include css3-flex-direction(column);
+        text-align: center;
+      }
     }
 
     .contacts-socials {

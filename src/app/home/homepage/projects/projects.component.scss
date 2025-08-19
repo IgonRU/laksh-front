@@ -64,7 +64,17 @@
       right: 0;
       padding: 3rem;
       color: white;
-      text-align: center;
+      text-align: left;
+
+      a {
+        color: white;
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+        
+        &:hover {
+          opacity: 0.8;
+        }
+      }
       
       .slide-title {
         font-size: clamp(1.5rem, 4vw, 3rem);
@@ -85,7 +95,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.4);
     border: none;
     color: white;
     font-size: 2rem;
@@ -151,8 +161,8 @@
 @media (max-width: 768px) {
   .fullscreen-slider {
     .slide .slide-content {
-      padding: 2rem 1rem;
-      
+      padding: 0 2rem 4rem 2rem;
+
       .slide-title {
         font-size: clamp(1.25rem, 5vw, 2rem);
       }

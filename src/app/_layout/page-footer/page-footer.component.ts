@@ -7,6 +7,7 @@ import { LakshContactYoutubeComponent } from "../../_components/contact-youtube/
 import { LakshContactVkComponent } from "../../_components/contact-vk/contact-vk.component";
 import { LakshContactTelegramComponent } from "../../_components/contact-telegram/contact-telegram.component";
 import { FeedbackFormComponent } from "../../_components/feedback-form/feedback-form.component";
+import { LakshContactTelegramElenaComponent } from "../../_components/contact-telegram-elena/contact-telegram-elena.component";
 
 @Component({
   selector: 'laksh-page-footer',
@@ -19,7 +20,8 @@ import { FeedbackFormComponent } from "../../_components/feedback-form/feedback-
     LakshContactYoutubeComponent,
     LakshContactVkComponent,
     LakshContactTelegramComponent,
-    FeedbackFormComponent
+    FeedbackFormComponent,
+    LakshContactTelegramElenaComponent
 ],
   templateUrl: './page-footer.component.html',
   styleUrls: ['./page-footer.component.scss']
