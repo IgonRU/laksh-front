@@ -18,6 +18,12 @@
     margin-top: 2rem;
   }
 
+  .build-info-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
   &.footer-contacts-row {
     @include css3-flex-display();
     @include css3-align-items(stretch);

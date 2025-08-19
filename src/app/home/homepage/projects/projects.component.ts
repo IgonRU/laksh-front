@@ -236,7 +236,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     
     // Если это горизонтальный свайп, предотвращаем прокрутку страницы
-    if (this.isHorizontalSwipe) {
+    if (this.isHorizontalSwipe && event.cancelable) {
       event.preventDefault();
       
       if (this.sliderTrack) {

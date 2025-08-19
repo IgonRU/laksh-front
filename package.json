@@ -1,13 +1,21 @@
 {
   "name": "laksh-front",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "scripts": {
     "ng": "ng",
+    "prebuild": "node scripts/generate-build-info.js",
     "start": "ng serve --host laksh.local --port 5200",
     "build": "ng build",
+    "build:patch": "npm run version:bump patch && npm run build",
+    "build:minor": "npm run version:bump minor && npm run build",
+    "build:major": "npm run version:bump major && npm run build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:laksh-front": "node dist/laksh-front/server/server.mjs"
+    "serve:ssr:laksh-front": "node dist/laksh-front/server/server.mjs",
+    "version:current": "node scripts/version-manager.js current",
+    "version:bump": "node scripts/version-manager.js bump",
+    "version:set": "node scripts/version-manager.js set",
+    "git:hooks": "node scripts/setup-git-hooks.js"
   },
   "private": true,
   "dependencies": {
