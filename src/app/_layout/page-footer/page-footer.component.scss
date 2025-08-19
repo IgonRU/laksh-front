@@ -18,12 +18,13 @@
     margin-top: 2rem;
   }
 
-  .footer-contacts-row {
+  &.footer-contacts-row {
     @include css3-flex-display();
     @include css3-align-items(stretch);
+    column-gap: 4rem;
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 800px) {
     @include css3-flex-direction(column);
 
     > * {
@@ -43,6 +44,7 @@
 
 .footer-slogan-row {
   @include css3-flex-display();
+  margin-bottom: 2rem;
 
   .footer-slogan {
     @include css3-flex();
@@ -112,7 +114,7 @@
     }
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 800px) {
     .footer-slogan {
       margin-bottom: 2rem;
 
@@ -175,7 +177,7 @@
 
     .privacy {
       @include css3-flex-display(column);
-      row-gap: 0.5rem;
+      row-gap: 0.25rem;
 
       p {
         font-size: 0.9rem;
@@ -187,7 +189,7 @@
         text-decoration: none;
       }
 
-      @media (max-width: 550px) {
+      @media (max-width: 800px) {
         row-gap: 0;
       }
     }

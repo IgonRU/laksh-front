@@ -25,7 +25,7 @@ laksh-page-header {
       @media (min-width: 1000px) {
         @include css3-justify-content(center);
       }
-      @media (max-width: 549px) {
+      @media (max-width: 600px) {
         .lang-switch {
           display: none;
         }
@@ -33,7 +33,7 @@ laksh-page-header {
     }
 
     .center-menu {
-      @media (max-width: 550px) {
+      @media (max-width: 600px) {
         display: none;
       }
     }
@@ -53,7 +53,7 @@ laksh-page-header {
     }
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 600px) {
     padding-bottom: 0.5rem;
     padding-left: 0;
     padding-right: 0;
