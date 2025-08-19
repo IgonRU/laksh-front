@@ -9,8 +9,9 @@
     </div>
     <div class="menu-toggle-lang-block">
       <div class="menu-toggle">
-        <button mat-button>
-          <mat-icon fontIcon="menu"></mat-icon>
+        <button mat-button (click)="toggleMobileMenu()" [class.open]="isMobileMenuOpen()">
+          <mat-icon fontIcon="menu" class="menu-icon"></mat-icon>
+          <mat-icon fontIcon="close" class="close-icon"></mat-icon>
         </button>
       </div>
       <div class="lang-switch">
@@ -21,3 +22,4 @@
 </div>
 
 <laksh-nav-sticky></laksh-nav-sticky>
+

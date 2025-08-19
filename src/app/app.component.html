@@ -6,6 +6,14 @@
     class="layout-header">
   </laksh-page-header>
 
+  <!-- Мобильное меню -->
+  <laksh-mobile-menu 
+    [menu]="menu" 
+    [centerMenu]="menuCenter" 
+    [isOpen]="isMobileMenuOpen()"
+    (closeMenu)="closeMobileMenu()">
+  </laksh-mobile-menu>
+
   <section class="body">
     <router-outlet />
   </section>

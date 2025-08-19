@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { RouterOutlet } from '@angular/router';
 import {IgonResponsiveLayoutComponent} from "@igon/responsive-layout";
 import {LakshPageFooterComponent} from "./_layout/page-footer/page-footer.component";
 import {LakshPageHeaderComponent} from "./_layout/page-header/page-header.component";
 import {LakshHeaderMenuItem} from "./_layout/page-header/header-menu/header-menu-item.class";
+import {LakshMobileMenuComponent} from "./_layout/page-header/mobile-menu/mobile-menu.component";
+import {MobileMenuService} from "./_layout/page-header/mobile-menu/mobile-menu.service";
 
 @Component({
   selector: 'app-root',
@@ -12,11 +15,16 @@ import {LakshHeaderMenuItem} from "./_layout/page-header/header-menu/header-menu
     RouterOutlet,
     IgonResponsiveLayoutComponent,
     LakshPageFooterComponent,
-    LakshPageHeaderComponent],
+    LakshPageHeaderComponent,
+    LakshMobileMenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
+  private subscription: Subscription = new Subscription();
+  isMobileMenuOpen = signal(false);
+  
+  constructor(private mobileMenuService: MobileMenuService) {}
 
   menu: LakshHeaderMenuItem[] = [
     new LakshHeaderMenuItem({
@@ -53,5 +61,27 @@ export class AppComponent {
       route: '/#plant'
     })
   ];
+
+  ngOnInit(): void {
+    // Подписываемся на изменения состояния мобильного меню
+    this.subscription.add(
+      this.mobileMenuService.isOpen$.subscribe(isOpen => {
+        this.isMobileMenuOpen.set(isOpen);
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  // Методы управления мобильным меню
+  toggleMobileMenu(): void {
+    this.mobileMenuService.toggle();
+  }
+
+  closeMobileMenu(): void {
+    this.mobileMenuService.close();
+  }
 
 }

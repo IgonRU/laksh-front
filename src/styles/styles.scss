@@ -11,6 +11,63 @@
   touch-action: pan-y;
 }
 
+// Глобальные стили для мобильного меню
+laksh-mobile-menu {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  z-index: 9999 !important;
+  pointer-events: none;
+  
+  .mobile-menu {
+    pointer-events: auto;
+  }
+}
+
+// Глобальные стили для анимации кнопки мобильного меню
+.menu-toggle {
+  position: relative;
+  z-index: 10000 !important; /* Поверх мобильного меню */
+  
+  button {
+    position: relative;
+    z-index: 10000 !important;
+    
+    .menu-icon,
+    .close-icon {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    .close-icon {
+      opacity: 0 !important;
+      transform: translate(-50%, -50%) rotate(90deg) !important;
+      pointer-events: none !important;
+    }
+    
+    &.open {
+      background: rgba(0, 0, 0, 0.1) !important;
+      
+      .menu-icon {
+        opacity: 0 !important;
+        transform: translate(-50%, -50%) rotate(-90deg) !important;
+        pointer-events: none !important;
+      }
+      
+      .close-icon {
+        opacity: 1 !important;
+        transform: translate(-50%, -50%) rotate(0deg) !important;
+        pointer-events: auto !important;
+      }
+    }
+  }
+}
+
 body {
   overflow-x: hidden;
 }
