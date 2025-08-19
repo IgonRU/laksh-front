@@ -11,6 +11,11 @@
   touch-action: pan-y;
 }
 
+/* CSS переменная для корректной высоты viewport на мобильных устройствах */
+:root {
+  --vh: 1vh;
+}
+
 // Глобальные стили для мобильного меню
 laksh-mobile-menu {
   position: fixed !important;
