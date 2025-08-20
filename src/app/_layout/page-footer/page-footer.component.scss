@@ -15,7 +15,7 @@
 
   &.footer-legals-row {
     @include css3-flex-display();
-    @include css3-align-items(space-between);
+    @include css3-align-items(center);
     column-gap: 2rem;
     margin-top: 2rem;
 
@@ -30,10 +30,6 @@
   
     .build-info-container {
       text-align: right;
-    }
-
-    @media (max-width: 800px) {
-      align-items: center;
     }
   }
 
