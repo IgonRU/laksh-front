@@ -13,15 +13,28 @@
     @include css3-align-items(center);
   }
 
-  .legals {
-    color: #666;
+  &.footer-legals-row {
+    @include css3-flex-display();
+    @include css3-align-items(space-between);
+    column-gap: 2rem;
     margin-top: 2rem;
-  }
 
-  .build-info-container {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
+    > * {
+      display: flex;
+      @include css3-flex(1);
+    }
+
+    .legals {
+      color: #666;
+    }
+  
+    .build-info-container {
+      text-align: right;
+    }
+
+    @media (max-width: 800px) {
+      align-items: center;
+    }
   }
 
   &.footer-contacts-row {
@@ -35,6 +48,7 @@
 
     > * {
       text-align: center;
+      align-items: center;
     }
 
     &.footer-contacts-row {
