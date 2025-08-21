@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LakshPageTitleComponent } from "../_components/page-title/page-title.component";
+import { LakshPageTitleComponent } from "../../_components/page-title/page-title.component";
 
 @Component({
   selector: 'laksh-services',
