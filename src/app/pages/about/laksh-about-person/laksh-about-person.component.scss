@@ -66,11 +66,11 @@
   @media (max-width: 800px) {
     flex-direction: column;
     gap: 2rem;
-    padding: 1rem;
-    
+    padding: 0;
+
     .portrait-section {
-      flex: none;
-      width: 100%;
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
     }
     
     .info-section {
@@ -99,7 +99,6 @@
   }
   
   @media (max-width: 480px) {
-    padding: 0.5rem;
     
     .info-section {
       .name-title {
