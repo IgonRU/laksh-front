@@ -29,23 +29,23 @@ export class AppComponent implements OnInit, OnDestroy {
   menu: LakshHeaderMenuItem[] = [
     new LakshHeaderMenuItem({
       name: 'about-us',
-      title: 'О ландшафтной студии',
-      route: '/#about-us'
+      title: 'О нас',
+      route: '/about'
     }),
     new LakshHeaderMenuItem({
       name: 'projects',
-      title: 'Проекты студии',
-      route: '/#projects'
+      title: 'Проекты',
+      route: '/projects'
     }),
     new LakshHeaderMenuItem({
       name: 'services',
-      title: 'Услуги компании',
-      route: '/#services'
+      title: 'Услуги',
+      route: '/services'
     }),
     new LakshHeaderMenuItem({
       name: 'contacts',
-      title: 'Как с нами связаться',
-      route: '/#contacts'
+      title: 'Контакты',
+      route: '#contacts'
     }),
   ];
 

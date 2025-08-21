@@ -2,8 +2,6 @@ laksh-page-header {
   @include css3-flex-display(column);
   @include css3-align-items(center);
   padding-bottom: 1rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
   margin-bottom: 1rem;
 
   .header-row {
@@ -56,8 +54,6 @@ laksh-page-header {
 
   @media (max-width: 600px) {
     padding-bottom: 0.5rem;
-    padding-left: 0;
-    padding-right: 0;
     margin-bottom: 0;
   }
 }

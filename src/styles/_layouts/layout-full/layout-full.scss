@@ -18,6 +18,7 @@ igon-responsive-layout {
       max-width: 1920px;
       align-self: center;
       overflow-x: hidden;
+      padding: 0 2rem;
 
       @media (max-width: 700px) {
         padding-left: 0.5rem;
