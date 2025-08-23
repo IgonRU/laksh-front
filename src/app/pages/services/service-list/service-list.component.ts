@@ -13,6 +13,9 @@ import { LakshServiceItem } from '../_classes/service-item.class';
 export class LakshServiceListComponent implements OnInit {
 
   serviceItems: LakshServiceItem[] = [];
+  
+  // Индекс открытого шага для каждого сервиса (по умолчанию первый шаг в каждом сервисе)
+  openStepIndexes: number[] = [];
 
   constructor() {
     this.initializeServiceItems();
@@ -62,6 +65,39 @@ export class LakshServiceListComponent implements OnInit {
 
   private initializeServiceItems(): void {
     this.serviceItems = this.serviceItemsJSON.map(item => new LakshServiceItem(item));
+    // Инициализируем открытые шаги - по умолчанию первый шаг (индекс 0) в каждом сервисе
+    this.openStepIndexes = this.serviceItems.map(() => 0);
+  }
+
+  /**
+   * Переключает открытие/закрытие шага
+   */
+  toggleStep(serviceIndex: number, stepIndex: number): void {
+    if (this.openStepIndexes[serviceIndex] === stepIndex) {
+      // Если кликаем на уже открытый шаг - закрываем его
+      this.openStepIndexes[serviceIndex] = -1;
+    } else {
+      // Иначе открываем новый шаг
+      this.openStepIndexes[serviceIndex] = stepIndex;
+    }
+  }
+
+  /**
+   * Проверяет, открыт ли шаг
+   */
+  isStepOpen(serviceIndex: number, stepIndex: number): boolean {
+    return this.openStepIndexes[serviceIndex] === stepIndex;
+  }
+
+  /**
+   * Методы-обертки для передачи в дочерний компонент
+   */
+  getToggleStepFunction(): (serviceIndex: number, stepIndex: number) => void {
+    return this.toggleStep.bind(this);
+  }
+
+  getIsStepOpenFunction(): (serviceIndex: number, stepIndex: number) => boolean {
+    return this.isStepOpen.bind(this);
   }
 
   ngOnInit(): void {

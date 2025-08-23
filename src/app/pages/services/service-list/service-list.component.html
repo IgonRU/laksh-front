@@ -1,7 +1,10 @@
 <div *ngIf="serviceItems.length > 0" class="service-list-wrapper">
     <laksh-service-item 
-        *ngFor="let serviceItem of serviceItems" 
-        [serviceItem]="serviceItem">
+        *ngFor="let serviceItem of serviceItems; let serviceIndex = index" 
+        [serviceItem]="serviceItem"
+        [serviceIndex]="serviceIndex"
+        [toggleStep]="getToggleStepFunction()"
+        [isStepOpen]="getIsStepOpenFunction()">
     </laksh-service-item>
 </div>
 
