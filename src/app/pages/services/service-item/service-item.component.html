@@ -1,0 +1,10 @@
+<div *ngIf="serviceItem" class="service-item-wrapper">
+    <div class="service-item-title"><h3>{{ serviceItem.title }}</h3></div>
+    <div class="service-item-description">{{ serviceItem.description }}</div>
+    <div class="service-item-steps">
+        <laksh-service-item-step 
+        *ngFor="let step of serviceItem.serviceSteps" 
+        [step]="step">
+        </laksh-service-item-step>
+    </div>
+</div>

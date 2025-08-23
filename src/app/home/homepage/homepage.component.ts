@@ -16,9 +16,7 @@ import { LakshFixedBackgroundBlockComponent } from '../../_components/fixed-back
     IntroComponent,
     HeroComponent,
     ProjectsComponent,
-    ServicesComponent,
-    AboutComponent,
-    LakshFixedBackgroundBlockComponent
+    ServicesComponent
 ],
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']

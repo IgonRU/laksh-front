@@ -1,0 +1,10 @@
+<div *ngIf="serviceItems.length > 0" class="service-list-wrapper">
+    <laksh-service-item 
+        *ngFor="let serviceItem of serviceItems" 
+        [serviceItem]="serviceItem">
+    </laksh-service-item>
+</div>
+
+<div *ngIf="serviceItems.length === 0" class="service-list-wrapper">
+    <div class="service-list-title">No services found</div>
+</div>

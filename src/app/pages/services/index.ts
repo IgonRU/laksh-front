@@ -1,1 +1,1 @@
-export { ServicesComponent } from './services.component';
+export { LakshServicesComponent as ServicesComponent } from './services.component';

@@ -1,0 +1,18 @@
+.service-list-wrapper {
+    display: flex;
+    flex-direction: row;
+    column-gap: 6rem;
+
+    laksh-service-item {
+        flex: 1;
+    }
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+        row-gap: 2rem;
+    }
+
+    @media (max-width: 700px) {
+        row-gap: 1rem;
+    }
+}
