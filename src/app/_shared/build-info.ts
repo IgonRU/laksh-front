@@ -2,13 +2,13 @@
 // Не редактируйте его вручную!
 
 export const BUILD_INFO = {
-  "buildTime": "2025-08-23T14:17:02.255Z",
-  "buildDate": "23.08.2025, 17:17:02",
-  "buildTimestamp": 1755958622255,
-  "commitHash": "31e4616",
+  "buildTime": "2025-08-23T14:21:58.241Z",
+  "buildDate": "23.08.2025, 17:21:58",
+  "buildTimestamp": 1755958918241,
+  "commitHash": "0a8344f",
   "branch": "master",
   "lastTag": "no-tag",
-  "version": "0.2.9"
+  "version": "0.2.10"
 };
 
 export default BUILD_INFO;

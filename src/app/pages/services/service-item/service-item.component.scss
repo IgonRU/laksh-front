@@ -79,19 +79,28 @@
         }
         
         .step-content {
-            padding: 0 0 1.5rem 0;
+            max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
+            transition: max-height 0.3s ease;
             
             .step-description {
                 font-size: 1rem;
                 color: #444;
                 line-height: 1.7;
                 margin: 0;
-                transform: translateY(0);
-                transition: transform 0.3s ease;
                 max-width: 800px;
+                padding: 1rem 0 1.5rem 0;
+                transition: padding 0.3s ease, line-height 0.3s ease;
             }
+        }
+        
+        &:not(.open) .step-content .step-description {
+            padding: 0;
+            line-height: 0;
+        }
+        
+        &.open .step-content {
+            max-height: 300px; /* достаточно большое значение для любого контента */
         }
     }
 }
