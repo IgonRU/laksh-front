@@ -1,5 +1,7 @@
+@import '../../variables.scss';
+
 igon-responsive-layout {
-  $background-color: #f1f0ef;
+  $background-color: $color-bg-primary;
   $desktop-content-max-width: 1400px;
   overflow-x: hidden;
   width: 100%;
@@ -94,7 +96,7 @@ igon-responsive-layout {
     .section-header {
       position: relative;
       padding: 2rem;
-      color: #102a14;
+              color: $color-primary;
       flex-shrink: 0; // Заголовок не сжимается
       
       .section-title {

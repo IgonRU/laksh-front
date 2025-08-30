@@ -2,19 +2,18 @@
 
 .section-title {
   position: relative;
-  color: #102a14;
+      color: $color-primary;
   flex-shrink: 0; // Заголовок не сжимается
   margin-bottom: 2rem;
   
   .title {
     font-size: $h2-font-size;
-    font-weight: 500;
     margin-bottom: 0.5rem;
   }
   
   .lead {
     font-size: $h2-lead-font-size;
-    color: #666;
+            color: $color-text-gray;
     line-height: 1.1;
     font-style: italic;
     transition: font-size 0.3s ease, max-width 0.3s ease;

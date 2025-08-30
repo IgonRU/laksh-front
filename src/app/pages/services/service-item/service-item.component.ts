@@ -17,4 +17,8 @@ export class LakshServiceItemComponent {
   @Input() serviceIndex: number;
   @Input() toggleStep: (serviceIndex: number, stepIndex: number) => void;
   @Input() isStepOpen: (serviceIndex: number, stepIndex: number) => boolean;
+
+  formatStepNumber(stepNumber: number): string {
+    return stepNumber.toString().padStart(2, '0');
+  }
 }

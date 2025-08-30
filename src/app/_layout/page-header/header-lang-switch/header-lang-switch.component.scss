@@ -1,3 +1,5 @@
+@import '../../../../styles/variables.scss';
+
 :host {
   .lang-switch {
     display: flex;
@@ -5,7 +7,7 @@
     gap: 0.5rem;
     
     a {
-      color: #666;
+              color: $color-text-gray;
       text-decoration: none;
       font-family: 'Mulish', Arial, sans-serif;
       font-size: 18px;
@@ -13,17 +15,17 @@
       font-weight: 100;
       
       &:hover {
-        color: #333;
+        color: $color-text-dark;
       }
       
       &.active {
         font-weight: 400;
-        color: #333;
+        color: $color-text-dark;
       }
     }
     
     .separator {
-      color: #999;
+      color: $color-text-dark;
       font-size: 14px;
       font-weight: 100;
     }

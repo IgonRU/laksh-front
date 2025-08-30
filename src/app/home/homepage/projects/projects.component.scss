@@ -1,3 +1,5 @@
+@import '../../../../styles/variables.scss';
+
 .fullscreen-slider {
   width: 100vw;
   height: 100vh;
@@ -8,7 +10,7 @@
   
   .projects-header {
     position: relative;
-    color: #102a14;
+            color: $color-primary;
     flex-shrink: 0; // Заголовок не сжимается
   }
   
@@ -132,7 +134,7 @@
     z-index: 10;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    border: 1px solid #ddd;
+            border: 1px solid $color-border-primary;
     border-bottom: none;
     gap: 2px;
     
@@ -150,7 +152,7 @@
       }
       
       &.active {
-        background: #102a14;
+        background: $color-primary;
         transform: scaleY(1.2);
       }
     }
