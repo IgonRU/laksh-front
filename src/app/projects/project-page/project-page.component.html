@@ -1,0 +1,66 @@
+<div *ngIf="project" class="project-page">
+  <laksh-page-promo 
+    [title]="project.title" 
+    [subtitle]="project.description">
+
+    <div class="container-desktop">
+      <section class="page-section">
+        <div class="section-content">
+          
+          <div class="project-details">
+            <div class="project-info">
+              <h2>О проекте</h2>
+              <p>{{ project.description }}</p>
+              
+              <div class="project-features">
+                <h3>Особенности проекта</h3>
+                <ul>
+                  <li>Профессиональное планирование ландшафта</li>
+                  <li>Использование качественных материалов</li>
+                  <li>Современные технологии озеленения</li>
+                  <li>Индивидуальный подход к каждому проекту</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project-gallery">
+              <h3>Галерея проекта</h3>
+              <div class="gallery-grid">
+                <div class="gallery-item">
+                  <img [src]="project.image" [alt]="project.title + ' - фото 1'" />
+                </div>
+                <div class="gallery-item">
+                  <img [src]="project.image" [alt]="project.title + ' - фото 2'" />
+                </div>
+                <div class="gallery-item">
+                  <img [src]="project.image" [alt]="project.title + ' - фото 3'" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+  </laksh-page-promo>
+</div>
+
+<div *ngIf="!project" class="project-not-found">
+  <laksh-page-article 
+    title="Проект не найден" 
+    subtitle="Запрашиваемый проект не существует">
+
+    <div class="container-desktop">
+      <section class="page-section">
+        <div class="section-content">
+          <div class="not-found-content">
+            <p>К сожалению, проект с указанным ID не найден.</p>
+            <a routerLink="/projects" class="back-link">Вернуться к проектам</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </laksh-page-article>
+</div>

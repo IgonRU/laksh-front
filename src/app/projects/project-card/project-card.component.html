@@ -1,4 +1,4 @@
-<div class="project-card" [routerLink]="project.url">
+<div class="project-card" [routerLink]="['/project', project.id]">
   <div class="project-image">
     <img [src]="project.image" [alt]="project.title" />
     <div class="project-overlay">

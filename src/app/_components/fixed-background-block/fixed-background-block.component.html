@@ -1,5 +1,7 @@
 <section 
 class="fixed-background-block parallax-window" 
-[style.background-image]="backgroundImage()">
+[class.fullscreen]="fullScreen()"
+[class.with-gradient]="backgroundGradient()"
+[style.background-image]="formattedBackgroundImage()">
   <ng-content></ng-content>
 </section> 
