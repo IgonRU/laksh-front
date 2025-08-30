@@ -1,11 +1,23 @@
 <div *ngIf="serviceItems.length > 0" class="service-list-wrapper">
-    <laksh-service-item 
+    <div 
         *ngFor="let serviceItem of serviceItems; let serviceIndex = index" 
-        [serviceItem]="serviceItem"
-        [serviceIndex]="serviceIndex"
-        [toggleStep]="getToggleStepFunction()"
-        [isStepOpen]="getIsStepOpenFunction()">
-    </laksh-service-item>
+        class="service-item-container"
+        [class.even]="serviceIndex % 2 === 0"
+        [class.odd]="serviceIndex % 2 === 1">
+        
+        <div class="service-item-image">
+            <img [src]="serviceItem.image" [alt]="serviceItem.title" />
+        </div>
+        
+        <div class="service-item-content">
+            <laksh-service-item 
+                [serviceItem]="serviceItem"
+                [serviceIndex]="serviceIndex"
+                [toggleStep]="getToggleStepFunction()"
+                [isStepOpen]="getIsStepOpenFunction()">
+            </laksh-service-item>
+        </div>
+    </div>
 </div>
 
 <div *ngIf="serviceItems.length === 0" class="service-list-wrapper">
