@@ -27,7 +27,7 @@
     }
 
     .legals {
-              color: $color-text-secondary;
+              color: $color-text-gray;
     }
   
     .build-info-container {
@@ -67,7 +67,7 @@
   .footer-slogan {
     @include css3-flex();
 
-    $footer-slogan-font-size: 100px;
+    $footer-slogan-font-size: 70px;
     $footer-slogan-lead-font-size: 24px;
     $footer-slogan-max-width: 1300px;
 
@@ -76,15 +76,13 @@
     .mainpage-title {
         font-size: $footer-slogan-font-size;
         margin: 0 0 16px;
-        letter-spacing: -0.5px;
-        line-height: 0.8;
         transition: font-size 0.3s ease, max-width 0.3s ease;
         margin-bottom: 2rem;
       }
       
       p.lead {
         font-size: $footer-slogan-lead-font-size;
-        color: $color-text-primary;
+        color: $color-text-dark;
         opacity: 0.9;
         line-height: 1.1;
         transition: font-size 0.3s ease, max-width 0.3s ease;
@@ -119,7 +117,7 @@
   @media (max-width: 1000px) {
     .footer-slogan {
       .mainpage-title {
-        font-size: 50px;
+        font-size: 40px;
       }
     }
 
@@ -127,7 +125,7 @@
       margin-left: -2rem;
   
       .icon {
-        width: 15rem;
+        width: 13rem;
       }
     }
   }
@@ -137,7 +135,7 @@
       margin-bottom: 2rem;
 
       .mainpage-title {
-        font-size: 50px;
+        font-size: 40px;
         margin-bottom: 1rem;
       }
 
@@ -208,7 +206,7 @@
       }
 
       a {
-        color: $color-text-secondary;
+        color: $color-text-gray;
         text-decoration: none;
       }
 

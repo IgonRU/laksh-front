@@ -83,7 +83,7 @@ app-root {
 
 html {
   font-size: 18px;
-  font-family: 'Arial';
+  font-family: 'Montserrat', Arial, sans-serif;
   font-style: normal;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -91,9 +91,13 @@ html {
   box-sizing: border-box;
 }
 
-h1, h2, h3 {
-  font-weight: 500;
+h1, h2, h3, h4 {
+  font-weight: 400;
   margin-top: 0;
+  color: $green-dark;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -0.5px;
 }
 
 h1 {

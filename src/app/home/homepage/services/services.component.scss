@@ -53,7 +53,7 @@ h2 {
   .description {
     font-size: clamp(1.1rem, 2vw, 1.4rem);
     margin: 0 0 14px;
-            color: $color-text-primary;
+            color: $color-text-dark;
   }
 }
 
@@ -63,7 +63,7 @@ h2 {
 
 .svc-bullets li {
   margin: 6px 0;
-          color: $color-text-primary;
+          color: $color-text-dark;
 }
 
 .svc-note {

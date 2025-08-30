@@ -25,7 +25,7 @@ export class LakshServiceListComponent implements OnInit {
     {
       title: 'Проектирование',
       description: 'Мы создаем проект, который будет соответствовать вашим потребностям и ожиданиям.',
-      image: 'https://via.placeholder.com/1',
+      image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=2400&q=70',
       serviceSteps: [
         {
           title: 'Разработка концепции',
@@ -42,7 +42,7 @@ export class LakshServiceListComponent implements OnInit {
     {
       title: 'Реализация',
       description: 'В нашей компании работают специально подготовленные специалисты, которые смогут реализовать проект любой сложности.',
-      image: 'https://via.placeholder.com/2',
+      image: 'https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?auto=format&fit=crop&w=2400&q=70',
       serviceSteps: [
         {
           title: 'Подготовка документации',

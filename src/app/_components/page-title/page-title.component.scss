@@ -42,13 +42,17 @@
     font-size: $h1-font-size;
     margin: 0 0 16px;
     letter-spacing: -0.5px;
-    line-height: 1;
+    line-height: 0.9;
     transition: font-size 0.3s ease, max-width 0.3s ease;
+
+    span.title-tail {
+      font-size: $h1-tail-font-size;
+    }
   }
   
   .lead {
     font-size: $h1-lead-font-size;
-            color: $color-text-secondary;
+    color: $color-text-gray;
     line-height: 1.1;
     font-style: italic;
     transition: font-size 0.3s ease, max-width 0.3s ease;
@@ -69,6 +73,10 @@
     h1.title {
       font-size: $h1-font-size-mobile;
       line-height: 0.8;
+
+      .title-tail {
+        font-size: $h1-tail-font-size-mobile;
+      }
     }
 
     p.lead {
