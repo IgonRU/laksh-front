@@ -45,7 +45,7 @@ export class AppComponent implements OnInit, OnDestroy {
     new LakshHeaderMenuItem({
       name: 'contacts',
       title: 'Контакты',
-      route: '#contacts'
+      route: '/#contacts'
     }),
   ];
 
@@ -53,7 +53,7 @@ export class AppComponent implements OnInit, OnDestroy {
     new LakshHeaderMenuItem({
       name: 'portfolio',
       title: 'ПОРТФОЛИО',
-      route: '/#portfolio'
+      route: '/projects'
     }),
     new LakshHeaderMenuItem({
       name: 'plant',
