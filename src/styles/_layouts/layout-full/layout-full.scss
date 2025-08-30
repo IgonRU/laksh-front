@@ -50,6 +50,7 @@ igon-responsive-layout {
         line-height: 1.1;
         transition: font-size 0.3s ease;
         margin: 0;
+        color: $green-medium;
         
         .underline {
           font-size: 1.5rem;
@@ -59,13 +60,13 @@ igon-responsive-layout {
 
       &.lakshmi-pure {
         .icon {
-          background-image: url("/assets/logo-lakshmi-pure.svg");
+          background-image: url("/assets/logo-lakshmi-green-pure.svg");
         }
       }
 
       &.lakshmi-named {
         .icon {
-          background-image: url("/assets/logo-lakshmi-named.svg");
+          background-image: url("/assets/logo-lakshmi-green-named.svg");
         }
       }
     }
