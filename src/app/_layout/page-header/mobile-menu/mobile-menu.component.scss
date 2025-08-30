@@ -1,3 +1,5 @@
+@import '../../../../styles/variables.scss';
+
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -8,7 +10,7 @@
   visibility: hidden;
   opacity: 0;
   transition: all 0.3s ease;
-  background-color: #f1f0ef;
+          background-color: $color-bg-primary;
   
   &.open {
     visibility: visible;
@@ -63,7 +65,7 @@
           a {
             font-size: 1rem;
             text-decoration: none;
-            color: #333;
+            color: $color-text-primary;
             display: block;
             padding: 0.25rem 0;
           }

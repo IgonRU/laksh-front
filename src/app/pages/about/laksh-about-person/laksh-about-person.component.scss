@@ -1,3 +1,5 @@
+@import '../../../../styles/variables.scss';
+
 .about-person {
   display: flex;
   gap: 3rem;
@@ -37,7 +39,7 @@
       
       .title {
         font-size: 1.1rem;
-        color: #666;
+        color: $color-text-secondary;
         font-weight: 500;
         display: block;
       }
@@ -45,14 +47,14 @@
     
     .role {
       font-size: 1.1rem;
-      color: #102a14;
+              color: $color-primary;
       margin-bottom: 1.5rem;
       font-weight: 500;
     }
     
     .biography {
       font-size: 1rem;
-      color: #444;
+              color: $color-text-primary;
       line-height: 1.6;
       text-align: justify;
     }

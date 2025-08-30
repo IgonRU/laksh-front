@@ -48,7 +48,7 @@
   
   .lead {
     font-size: $h1-lead-font-size;
-    color: #666;
+            color: $color-text-secondary;
     line-height: 1.1;
     font-style: italic;
     transition: font-size 0.3s ease, max-width 0.3s ease;

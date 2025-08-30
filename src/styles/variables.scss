@@ -20,3 +20,60 @@ $h3-font-size: 1.5rem;
 $h3-lead-font-size: 1rem;
 $h3-font-size-mobile: 1rem;
 $h3-lead-font-size-mobile: 0.8rem;
+
+// Colors
+
+// Green Palette (Primary Brand Colors)
+$green-dark: #102a14;      // Основной темно-зеленый
+$green-medium: #1a3a1f;    // Средний зеленый
+$green-light: #2a5a2a;     // Светлый зеленый
+
+// Gray Palette (Text & UI Colors)
+$gray-dark: #333;          // Темно-серый (основной текст)
+$gray-medium: #666;         // Светло-серый (третичный текст)
+$gray-lightest: #aaa;      // Самый светлый серый
+$gray-border: #ccc;        // Серый для границ
+$gray-border-light: #ddd;  // Светло-серый для границ
+
+// Neutral Colors
+$white: #fff;              // Белый
+$black: #000;              // Черный
+$beige: #f1f0ef;          // Бежевый (основной фон)
+$beige-light: #f8f9fa;    // Светло-бежевый
+
+// Accent Colors
+$blue: #3498db;            // Синий
+$red: #e74c3c;            // Красный
+$slate: #7f8c8d;          // Сланцевый
+
+// Legacy Variables (для обратной совместимости)
+$color-primary: $green-dark;
+$color-primary-light: $green-medium;
+$color-primary-hover: $green-light;
+$color-accent: $green-light;
+
+// Text colors (соответствуют трем оттенкам серого)
+$color-text-primary: $gray-dark;      // Основной текст
+$color-text-secondary: $gray-medium;  // Вторичный текст
+$color-text-tertiary: $gray-lightest; // Третичный текст
+$color-text-quaternary: $gray-lightest; // Четвертичный текст (дублирует tertiary)
+$color-text-light: $gray-dark;        // Светлый текст (дублирует primary)
+$color-text-white: $white;            // Белый текст
+$color-text-black: $black;            // Черный текст
+
+$color-bg-primary: $beige;
+$color-bg-secondary: $beige-light;
+$color-bg-white: $white;
+
+// Gray borders
+$color-border-primary: $gray-border-light;
+$color-border-light: $gray-border;
+
+// Color borders
+$color-border-accent: $blue;
+$color-border-error: $red;
+
+$color-success: $green-light;
+$color-error: $red;
+$color-info: $blue;
+$color-warning: $slate;

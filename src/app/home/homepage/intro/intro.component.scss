@@ -1,3 +1,5 @@
+@import '../../../../styles/variables.scss';
+
 .section-pad {
   /* Базовые размеры для диапазона 700px - 1900px */
   $intro-padding-top: 50px;
@@ -24,7 +26,7 @@
   
   p.lead {
     font-size: $intro-title-lead-font-size;
-    color: #222;
+            color: $color-text-primary;
     opacity: 0.9;
     line-height: 1.1;
     transition: font-size 0.3s ease, max-width 0.3s ease;

@@ -1,5 +1,4 @@
 @import "variables";
-@import "colors";
 @import "fonts";
 @import "mixins";
 @import "css3-mixins";
@@ -110,7 +109,7 @@ h3 {
 }
 
 a {
-  color: $color-text-black;
+  color: $black;
   text-decoration: none;
 
   &:hover {

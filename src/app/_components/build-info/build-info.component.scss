@@ -4,12 +4,14 @@
   align-items: center;
   justify-content: flex-end;
 
-  .build-info {
+  @import '../../../styles/variables.scss';
+
+.build-info {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     font-size: 0.75rem;
-    color: #ccc;
+    color: $color-border-light;
   
     .addition-data {
       display: none;

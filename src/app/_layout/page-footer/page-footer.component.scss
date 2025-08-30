@@ -1,4 +1,5 @@
 @import "../../../styles/css3-flexbox.scss";
+@import "../../../styles/variables.scss";
 
 .container-desktop {
   padding-top: 2rem;
@@ -26,7 +27,7 @@
     }
 
     .legals {
-      color: #666;
+              color: $color-text-secondary;
     }
   
     .build-info-container {
@@ -83,7 +84,7 @@
       
       p.lead {
         font-size: $footer-slogan-lead-font-size;
-        color: #222;
+        color: $color-text-primary;
         opacity: 0.9;
         line-height: 1.1;
         transition: font-size 0.3s ease, max-width 0.3s ease;
@@ -207,7 +208,7 @@
       }
 
       a {
-        color: #666;
+        color: $color-text-secondary;
         text-decoration: none;
       }
 
