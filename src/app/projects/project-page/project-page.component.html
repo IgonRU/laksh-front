@@ -1,43 +1,64 @@
 <div *ngIf="project" class="project-page">
   <laksh-page-promo 
     [title]="project.title" 
-    [subtitle]="project.description"
+    [subtitle]="project.titleLead"
     [image]="project.image">
 
     <div class="container-desktop">
       <section class="page-section">
         <div class="section-content">
-          
           <div class="project-details">
-            <div class="project-info">
-              <h2>О проекте</h2>
-              <p>{{ project.description }}</p>
+            
+            <!-- Верхняя секция: слоган и описание -->
+            <div class="details-top">
+              <laksh-lead-content>
+                <span class="lead">{{ project.slogan }}</span>
+                <div class="content" [innerHTML]="project.description"></div>
+              </laksh-lead-content>
+            </div>
+
+            <!-- Нижняя секция: информация о проекте -->
+            <div class="details-bottom">
               
-              <div class="project-features">
-                <h3>Особенности проекта</h3>
-                <ul>
-                  <li>Профессиональное планирование ландшафта</li>
-                  <li>Использование качественных материалов</li>
-                  <li>Современные технологии озеленения</li>
-                  <li>Индивидуальный подход к каждому проекту</li>
+              <div class="info-section">
+                <h3>ОБ ОБЪЕКТЕ</h3>
+                <ul class="info-list">
+                  <li><strong>Тип:</strong> {{ project.info.type }}</li>
+                  <li><strong>Регион:</strong> {{ project.info.region }}</li>
+                  <li><strong>Стиль:</strong> {{ project.info.style }}</li>
+                  <li><strong>Площадь:</strong> {{ project.info.area }}</li>
+                  <li><strong>Год:</strong> {{ project.info.startYear }}</li>
                 </ul>
+              </div>
+
+              <div class="info-section" *ngIf="project.info.features && project.info.features.length > 0">
+                <h3>Особенности проекта</h3>
+                <div class="features-list">
+                  <div *ngFor="let feature of project.info.features" class="feature-category">
+                    <span class="category-label" [innerHTML]="feature.name"></span>
+                    <span class="category-count" [innerHTML]="feature.description"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-section">
+                <h3>Флора</h3>
+                <div class="plants-stats">
+                  <div class="total-plants">
+                    <span class="plants-label">Всего растений</span>
+                    <span class="plants-number">{{ project.info.plantsTotal }}</span>
+                  </div>
+  
+                  <div class="plants-list" *ngIf="project.info.plantsList && project.info.plantsList.length > 0">
+                    <span class="plants-label">Базовые растения</span>
+                    <ul class="features-list">
+                      <li *ngFor="let plant of project.info.plantsList">{{ plant.name }}</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="project-gallery">
-              <h3>Галерея проекта</h3>
-              <div class="gallery-grid">
-                <div class="gallery-item">
-                  <img [src]="project.image" [alt]="project.title + ' - фото 1'" />
-                </div>
-                <div class="gallery-item">
-                  <img [src]="project.image" [alt]="project.title + ' - фото 2'" />
-                </div>
-                <div class="gallery-item">
-                  <img [src]="project.image" [alt]="project.title + ' - фото 3'" />
-                </div>
-              </div>
-            </div>
           </div>
 
         </div>

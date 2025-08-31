@@ -2,7 +2,7 @@ export abstract class JsonInitializable {
     protected fieldMappings: { [key: string]: string } = {};
     protected nestedClassMappings: { [key: string]: { class: any, mappings?: { [key: string]: string } } } = {};
 
-    constructor(data?: Partial<any>, fieldMappings?: { [key: string]: string }, nestedClassMappings?: { [key: string]: { class: any, mappings?: { [key: string]: string } } }) {
+    constructor(data?: any, fieldMappings?: { [key: string]: string }, nestedClassMappings?: { [key: string]: { class: any, mappings?: { [key: string]: string } } }) {
         // Устанавливаем маппинги полей
         if (fieldMappings) {
             this.fieldMappings = { ...fieldMappings };
