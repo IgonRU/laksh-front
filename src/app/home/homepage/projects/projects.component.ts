@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
+import { LakshSectionTitleComponent } from "../../../_components/section-title/section-title.component";
 
 export interface Project {
   id: number;
@@ -13,7 +14,7 @@ export interface Project {
 @Component({
   selector: 'laksh-projects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LakshSectionTitleComponent],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })

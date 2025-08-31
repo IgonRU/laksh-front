@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LakshSectionTitleComponent } from "../../../_components/section-title/section-title.component";
 
 export interface Service {
   id: number;
@@ -15,7 +16,7 @@ export interface Service {
 @Component({
   selector: 'laksh-services',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LakshSectionTitleComponent],
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss']
 })
