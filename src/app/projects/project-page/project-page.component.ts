@@ -6,11 +6,12 @@ import { Project } from "../project-card/project-card.component";
 import { LakshPagePromoComponent } from "../../_layout/page-promo/page-promo.component";
 import { LakshProject } from './_classes/project.class';
 import { LeadContentComponent } from "../../_components/lead-content/lead-content.component";
+import { LakshProjectPageBlockComponent } from './project-page-block/project-page-block.component';
 
 @Component({
   selector: 'laksh-project-page',
   standalone: true,
-  imports: [CommonModule, LakshPagePromoComponent, LakshPageArticleComponent, LeadContentComponent],
+  imports: [CommonModule, LakshPagePromoComponent, LakshPageArticleComponent, LeadContentComponent, LakshProjectPageBlockComponent],
   templateUrl: './project-page.component.html',
   styleUrl: './project-page.component.scss'
 })
@@ -59,7 +60,48 @@ export class LakshProjectPageComponent implements OnInit {
           { "name": "Многолетники", "description": "2310" },
           { "name": "Газон (м²)", "description": "3520" }
         ]
-      }
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "data": {
+            "title": "Идея и сценарии использования",
+            "subtitle": "Парк для каждого дня",
+            "text": "Планировочная структура парка выстроена вокруг петлевых маршрутов разной протяженности: короткой прогулки на 15 минут, семейного круга на 30 минут и веломаршрута на 45 минут. Так посетители выбирают темп и формат отдыха.\n\nВдоль маршрутов расположены тихие зоны чтения, места для утренней йоги и семейные пикник-поляны. Скамейки ориентированы на зеленые «картины» — миксбордеры и древесно-кустарниковые группы."
+          }
+        },
+        {
+          "type": "image",
+          "data": {
+            "title": "Игровые и спортивные ядра",
+            "subtitle": "Безопасно и интересно",
+            "description": "Площадки разделены по возрастам, покрытие — ударопоглощающее. Рядом — навесы и питьевые фонтаны.",
+            "image": "https://images.unsplash.com/photo-1520975693413-1e6e1f64fd05?auto=format&fit=crop&w=800&q=80"
+          }
+        },
+        {
+          "type": "fixed",
+          "data": {
+            "title": "Зелёная инфраструктура",
+            "subtitle": "Экосервисы и устойчивость",
+            "description": "Ливневая вода собирается в понижения-рейн-гарденс, питающие древесно-кустарниковые посадки. Подбор растений ориентирован на низкий уход и круглогодичную декоративность.",
+            "image": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=800&q=80"
+          }
+        },
+        {
+          "type": "gallery",
+          "data": {
+            "title": "Атмосфера «Зеленого оазиса»",
+            "subtitle": "Маршруты, аллеи, события",
+            "description": "Фрагменты велодорожек, вечерняя подсветка, пикниковые лужайки.",
+            "images": [
+              "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
+              "https://images.unsplash.com/photo-1517959105821-eaf2591984b2?auto=format&fit=crop&w=800&q=80",
+              "https://images.unsplash.com/photo-1520975867597-0f8d3f4a7e4c?auto=format&fit=crop&w=800&q=80"
+            ]
+          }
+        }
+      ]
     },
     {
       "id": 2,
@@ -100,7 +142,48 @@ export class LakshProjectPageComponent implements OnInit {
           { "name": "Многолетники", "description": "3277" },
           { "name": "Газон (м²)", "description": "352" }
         ]
-      }
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "data": {
+            "title": "Коллекции и маршруты",
+            "subtitle": "Путешествие по климатическим зонам",
+            "text": "Маршрут садовода ведет через четыре раздела: умеренная Евразия, Средиземноморье, субтропики и тропики. Для каждого раздела предусмотрены подписи, QR-метки и интерактивные карточки растений.\n\nКоллекционные посадки формируют «окна» в разные экосистемы — от грандиозных магнолий до миниатюрных эпифитов."
+          }
+        },
+        {
+          "type": "image",
+          "data": {
+            "title": "Тропическая оранжерея",
+            "subtitle": "Микроклимат и уход",
+            "description": "Система туманообразования поддерживает влажность, а приточно-вытяжная вентиляция — стабильную температуру.",
+            "image": "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=800&q=80"
+          }
+        },
+        {
+          "type": "fixed",
+          "data": {
+            "title": "Образование и наука",
+            "subtitle": "Экскурсии и гербарий",
+            "description": "Еженедельные экскурсии, детские классы ботаники и фонд гербария на 5 000 образцов — база для учебных программ.",
+            "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80"
+          }
+        },
+        {
+          "type": "gallery",
+          "data": {
+            "title": "Атмосфера «Цветущего рая»",
+            "subtitle": "Цветение круглый год",
+            "description": "Фрагменты коллекций: лианы, орхидеи, тенелюбивые папоротники.",
+            "images": [
+              "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80",
+              "https://images.unsplash.com/photo-1516570161787-2fd917215a3d?auto=format&fit=crop&w=800&q=80",
+              "https://images.unsplash.com/photo-1523978591478-c753949ff840?auto=format&fit=crop&w=800&q=80"
+            ]
+          }
+        }
+      ]
     },
     {
       "id": 3,
@@ -141,7 +224,48 @@ export class LakshProjectPageComponent implements OnInit {
           { "name": "Многолетники", "description": "1250" },
           { "name": "Газон (м²)", "description": "980" }
         ]
-      }
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "data": {
+            "title": "Комфорт городской паузы",
+            "subtitle": "Тишина в центре",
+            "text": "Сквер ориентирован на короткие, но частые посещения: кофе-брейки, встречи, чтение. Места посадки с теневыми навесами чередуются с солнечными лужайками.\n\nПокрытия — износостойкие и антискользящие, бесбарьерная среда обеспечена на всех маршрутах."
+          }
+        },
+        {
+          "type": "image",
+          "data": {
+            "title": "Фонтан и вечерняя подсветка",
+            "subtitle": "Точка притяжения",
+            "description": "Фонтан работает в динамических сценариях, подсветка меняет сцену по времени суток.",
+            "image": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80"
+          }
+        },
+        {
+          "type": "fixed",
+          "data": {
+            "title": "Малая архитектура",
+            "subtitle": "Скамьи, перголы, урны",
+            "description": "Все элементы выполнены в единой палитре материалов и устойчивы к вандализму. Размещение продумано для визуальных осей и удобства.",
+            "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80"
+          }
+        },
+        {
+          "type": "gallery",
+          "data": {
+            "title": "Настроения сквера",
+            "subtitle": "Днем и вечером",
+            "description": "Сезонные цветники, вечерний свет, места для встреч.",
+            "images": [
+              "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
+              "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80",
+              "https://images.unsplash.com/photo-1516570161787-2fd917215a3d?auto=format&fit=crop&w=800&q=80"
+            ]
+          }
+        }
+      ]
     },
     {
       "id": 4,
@@ -182,7 +306,48 @@ export class LakshProjectPageComponent implements OnInit {
           { "name": "Многолетники", "description": "4870" },
           { "name": "Газон (м²)", "description": "5120" }
         ]
-      }
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "data": {
+            "title": "Четыре сезона в одном парке",
+            "subtitle": "Иммерсивные маршруты",
+            "text": "Каждая зона — самостоятельный сценарий с характерной палитрой, фактурами и ароматами. Переходы между зонами построены на мягких градиентах посадок, чтобы прогулка ощущалась как непрерывное путешествие.\n\nВ навигации используются пиктограммы сезонов, а также календарь фенологических событий — «когда куда идти»."
+          }
+        },
+        {
+          "type": "image",
+          "data": {
+            "title": "Весна и Лето",
+            "subtitle": "Сакуры и луговые поляны",
+            "description": "В «Весне» доминируют цветущие деревья, в «Лете» — злаково-луговые композиции и пикниковые площадки.",
+            "image": "https://images.unsplash.com/photo-1458966480358-a0ac42de0a7a?auto=format&fit=crop&w=800&q=80"
+          }
+        },
+        {
+          "type": "fixed",
+          "data": {
+            "title": "Осень и Зима",
+            "subtitle": "Огненные клены и графика злаков",
+            "description": "В «Осени» — теплые тона листвы и поздние астры. «Зима» подчеркивает архитектуру побегов и сухих соцветий с вечерней подсветкой.",
+            "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"
+          }
+        },
+        {
+          "type": "gallery",
+          "data": {
+            "title": "Моменты года",
+            "subtitle": "Пульс сезона",
+            "description": "Подборка видов из четырех сезонных локаций.",
+            "images": [
+              "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
+              "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80",
+              "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"
+            ]
+          }
+        }
+      ]
     },
     {
       "id": 5,
@@ -223,10 +388,50 @@ export class LakshProjectPageComponent implements OnInit {
           { "name": "Многолетники", "description": "3950" },
           { "name": "Газон (м²)", "description": "2750" }
         ]
-      }
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "data": {
+            "title": "Дикая природа — рядом",
+            "subtitle": "Маршруты по биотопам",
+            "text": "Маршруты спроектированы так, чтобы мягко вести посетителя через разные природные сообщества: опушки, влажные луга, прибрежные зоны. Информационные стенды рассказывают о видах и их роли в экосистеме.\n\nОсновные тропы — на настилах, чтобы защитить почву и микробиоту."
+          }
+        },
+        {
+          "type": "image",
+          "data": {
+            "title": "Настилы и мостки",
+            "subtitle": "Берегите природу ногами",
+            "description": "Деревянные настилы минимизируют вмешательство и сохраняют гидрологический режим почв.",
+            "image": "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=800&q=80"
+          }
+        },
+        {
+          "type": "fixed",
+          "data": {
+            "title": "Водные экосистемы",
+            "subtitle": "Пруды и канавы-аккумуляторы",
+            "description": "Система малых прудов аккумулирует ливневые воды и создает местообитания для птиц и амфибий.",
+            "image": "https://images.unsplash.com/photo-1516570161787-2fd917215a3d?auto=format&fit=crop&w=800&q=80"
+          }
+        },
+        {
+          "type": "gallery",
+          "data": {
+            "title": "Эко-детали",
+            "subtitle": "Материалы и информирование",
+            "description": "Указатели, стенды, места наблюдения за птицами.",
+            "images": [
+              "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=800&q=80",
+              "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80",
+              "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"
+            ]
+          }
+        }
+      ]
     }
-  ]
-  ;
+  ];
 
   constructor(
     private route: ActivatedRoute,

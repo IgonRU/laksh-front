@@ -95,10 +95,11 @@
     }
     
     .details-bottom {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 4rem;
-    }
+       display: grid;
+       grid-template-columns: 1fr 1fr 1fr;
+       gap: 4rem;
+     }
+     
   }
 
   .project-info {
@@ -108,6 +109,10 @@
       line-height: 1.7;
       margin: 0 0 2rem 0;
     }
+  }
+
+  .project-blocks {
+    padding: 4rem 0;
   }
 }
 

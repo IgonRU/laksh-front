@@ -65,7 +65,16 @@
       </section>
     </div>
 
+    <!-- Блоки контента проекта -->
+     @if (project.blocks && project.blocks.length > 0) {
+      <laksh-project-page-block 
+        *ngFor="let block of project.blocks" 
+        [block]="block">
+      </laksh-project-page-block>
+     }
+
   </laksh-page-promo>
+  
 </div>
 
 <div *ngIf="!project" class="project-not-found">
