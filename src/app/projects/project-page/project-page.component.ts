@@ -3,19 +3,19 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LakshPageArticleComponent } from "../../_layout/page-article/page-article.component";
 import { Project } from "../project-card/project-card.component";
-import { LakshFixedBackgroundBlockComponent } from "../../_components/fixed-background-block/fixed-background-block.component";
 import { LakshPagePromoComponent } from "../../_layout/page-promo/page-promo.component";
+import { LakshProject } from './_classes/project.class';
 
 @Component({
-  selector: 'app-project-page',
+  selector: 'laksh-project-page',
   standalone: true,
   imports: [CommonModule, LakshPagePromoComponent, LakshPageArticleComponent],
   templateUrl: './project-page.component.html',
   styleUrl: './project-page.component.scss'
 })
-export class ProjectPageComponent implements OnInit {
+export class LakshProjectPageComponent implements OnInit {
   
-  project: Project | null = null;
+  project: LakshProject | null = null;
   
   // Тестовые данные проектов (в реальном проекте это будет сервис)
   private projects: Project[] = [
@@ -64,7 +64,7 @@ export class ProjectPageComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       const projectId = +params['id'];
-      this.project = this.projects.find(p => p.id === projectId) || null;
+      this.project = new LakshProject(this.projects.find(p => p.id === projectId)) || null;
       
       if (!this.project) {
         // Если проект не найден, перенаправляем на страницу проектов

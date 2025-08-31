@@ -2,8 +2,8 @@ import { Routes } from '@angular/router';
 import { LakshHomepageComponent } from './home/homepage/homepage.component';
 import { LakshAboutComponent } from './pages/about/about.component';
 import { LakshServicesComponent } from './pages/services/services.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { ProjectPageComponent } from './projects/project-page/project-page.component';
+import { LakshProjectsComponent } from './projects/projects.component';
+import { LakshProjectPageComponent } from './projects/project-page/project-page.component';
 
 export const routes: Routes = [
   {
@@ -20,10 +20,10 @@ export const routes: Routes = [
   },
   {
     path: 'projects',
-    component: ProjectsComponent
+    component: LakshProjectsComponent
   },
   {
     path: 'project/:id',
-    component: ProjectPageComponent
+    component: LakshProjectPageComponent
   }
 ];

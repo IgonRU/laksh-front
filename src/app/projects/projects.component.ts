@@ -5,13 +5,13 @@ import { LakshPageArticleComponent } from "../_layout/page-article/page-article.
 import { ProjectCardComponent, Project } from "./project-card/project-card.component";
 
 @Component({
-  selector: 'app-projects',
+  selector: 'laksh-projects',
   standalone: true,
   imports: [CommonModule, RouterModule, LakshPageArticleComponent, ProjectCardComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
-export class ProjectsComponent {
+export class LakshProjectsComponent {
   
   projects: Project[] = [
     {
