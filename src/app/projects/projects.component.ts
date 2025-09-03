@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LakshPageArticleComponent } from "../_layout/page-article/page-article.component";
 import { ProjectCardComponent, Project } from "./project-card/project-card.component";
+import { LakshProjectsService } from './projects.service';
 
 @Component({
   selector: 'laksh-projects',
@@ -11,7 +12,7 @@ import { ProjectCardComponent, Project } from "./project-card/project-card.compo
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
-export class LakshProjectsComponent {
+export class LakshProjectsComponent implements OnInit {
   
   projects: Project[] = [
     {
@@ -50,4 +51,25 @@ export class LakshProjectsComponent {
       url: '/projects/natural-harmony'
     }
   ];
+
+  constructor(private projectsService: LakshProjectsService) {}
+
+  ngOnInit() {
+    this.loadProjects();
+  }
+
+  private loadProjects() {
+    this.projectsService.getProjects().subscribe({
+      next: (response) => {
+        console.log('LakshProjectsComponent loadProjects', response);
+        if (response.data) {
+          this.projects = response.data;
+        }
+      },
+      error: (error) => {
+        console.error('Ошибка загрузки проектов:', error);
+        // Оставляем тестовые данные при ошибке
+      }
+    });
+  }
 }
