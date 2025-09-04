@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { LakshProjectListItem } from '../project-list/_classes/project-list-item.class';
-import { environment } from '../../../environments/environment';
+import { LakshProjectListItem } from '../_classes/project-list-item.class';
+import { environment } from '../../../../environments/environment';
 
 export interface Project {
   id: number;

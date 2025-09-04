@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LakshPageArticleComponent } from "../_layout/page-article/page-article.component";
-import { LakshProjectCardComponent, Project } from "./project-card/project-card.component";
 import { LakshProjectsService } from './projects.service';
 import { LakshProjectListComponent } from "./project-list/project-list.component";
 import { LakshProjectList } from './project-list/_classes/project-list.class';
@@ -11,7 +10,7 @@ import { LakshProjectListItem } from './project-list/_classes/project-list-item.
 @Component({
   selector: 'laksh-projects',
   standalone: true,
-  imports: [CommonModule, RouterModule, LakshPageArticleComponent, LakshProjectCardComponent, LakshProjectListComponent],
+  imports: [CommonModule, RouterModule, LakshPageArticleComponent, LakshProjectListComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
@@ -64,7 +63,7 @@ export class LakshProjectsComponent implements OnInit {
   }
 
   private loadProjects() {
-    this.projectsService.getProjects().subscribe({
+    this.projectsService.getProjectList().subscribe({
       next: (response) => {
         console.log('LakshProjectsComponent loadProjects', response);
         if (response.data) {

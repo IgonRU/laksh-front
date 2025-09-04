@@ -17,8 +17,12 @@ export class LakshProjectsService extends IgonHttpService {
     super(httpConfig, http, httpError, null);
   }
 
-  getProjects(): Observable<IgonHttpResponse> {
+  getProjectList(): Observable<IgonHttpResponse> {
     return this.simpleGet('/projects');
+  }
+
+  getProject(url: string): Observable<IgonHttpResponse> {
+    return this.simpleGet(`/projects/${url}`);
   }
 
 }
