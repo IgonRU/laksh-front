@@ -18,7 +18,7 @@
             </div>
 
             <!-- Нижняя секция: информация о проекте -->
-            <!-- <div *ngIf="project.info" class="details-bottom">
+            <div *ngIf="project.info" class="details-bottom">
               
               <div class="info-section">
                 <h3>ОБ ОБЪЕКТЕ</h3>
@@ -57,7 +57,7 @@
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div>
 
           </div>
 
@@ -66,12 +66,12 @@
     </div>
 
     <!-- Блоки контента проекта -->
-     <!-- @if (project.blocks && project.blocks.length > 0) {
+     @if (project.blocks && project.blocks.length > 0) {
       <laksh-project-page-block 
         *ngFor="let block of project.blocks" 
         [block]="block">
       </laksh-project-page-block>
-     } -->
+     }
 
   </laksh-page-promo>
   

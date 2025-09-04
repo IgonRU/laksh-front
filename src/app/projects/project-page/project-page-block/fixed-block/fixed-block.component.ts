@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LakshProjectBlockData } from '../../_classes/project-block.class';
 import { LakshFixedBackgroundBlockComponent } from "../../../../_components/fixed-background-block/fixed-background-block.component";
 import { LakshSectionTitleComponent } from "../../../../_components/section-title/section-title.component";
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'laksh-fixed-block',
@@ -14,4 +15,8 @@ import { LakshSectionTitleComponent } from "../../../../_components/section-titl
 })
 export class LakshFixedBlockComponent {
   data = input.required<LakshProjectBlockData>();
+
+  getImageRoute(image: string): string {
+    return environment.backendHost + image;
+  }
 }
