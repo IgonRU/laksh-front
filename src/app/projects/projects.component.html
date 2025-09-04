@@ -6,12 +6,7 @@
     <section class="page-section">
         <div class="section-content">
 
-            <div class="projects-grid">
-                <app-project-card 
-                *ngFor="let project of projects" 
-                [project]="project">
-                </app-project-card>
-            </div>
+            <laksh-project-list [projectList]="projectList"></laksh-project-list>
 
         </div>
     </section>

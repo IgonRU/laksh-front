@@ -3,5 +3,6 @@ export const environment = {
   staging: false,
   front: true,
   dev: false,
-  apiUrl: 'http://laksh.local/api'
+  apiUrl: 'http://laksh.local/api',
+  backendHost: 'http://laksh.local/'
 };

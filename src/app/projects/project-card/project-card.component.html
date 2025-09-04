@@ -1,6 +1,6 @@
-<div class="project-card" [routerLink]="['/project', project.id]">
+<div class="project-card" [routerLink]="['/project/', project.url]">
   <div class="project-image">
-    <img [src]="project.image" [alt]="project.title" />
+    <img [src]="getProjectImageUrl()" [alt]="project.title" />
     <div class="project-overlay">
       <p class="project-description">{{ project.description }}</p>
       <div class="project-content">

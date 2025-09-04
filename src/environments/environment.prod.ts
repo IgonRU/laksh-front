@@ -3,5 +3,6 @@ export const environment = {
   staging: false,
   development: false,
   dev: false,
-  apiUrl: 'https://laksh.ru/api'
+  apiUrl: 'https://laksh.ru/api',
+  backendHost: 'https://laksh.ru/'
 };

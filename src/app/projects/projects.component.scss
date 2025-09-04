@@ -1,10 +1,6 @@
 @import '../../styles/variables.scss';
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem;
-}
+
 
 // Адаптивность для планшетов
 @media (max-width: 1000px) {
