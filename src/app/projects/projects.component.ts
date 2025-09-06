@@ -68,6 +68,7 @@ export class LakshProjectsComponent implements OnInit {
         console.log('LakshProjectsComponent loadProjects', response);
         if (response.data) {
           this.projectList = new LakshProjectList({items: response.data});
+          console.log('LakshProjectsComponent projectList', this.projectList);
         }
       },
       error: (error) => {

@@ -1,6 +1,7 @@
 @import '../../../../styles/variables.scss';
 
 .project-card {
+  display: block;
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
