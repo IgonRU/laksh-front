@@ -23,11 +23,12 @@
               <div class="info-section">
                 <h3>ОБ ОБЪЕКТЕ</h3>
                 <ul class="info-list">
-                  <li><strong>Тип:</strong> {{ project.info.type }}</li>
-                  <li><strong>Регион:</strong> {{ project.info.region }}</li>
-                  <li><strong>Стиль:</strong> {{ project.info.style }}</li>
-                  <li><strong>Площадь:</strong> {{ project.info.area }}</li>
-                  <li><strong>Год:</strong> {{ project.info.startYear }}</li>
+                  <li *ngIf="project.info.type"><strong>Тип:</strong> {{ project.info.type }}</li>
+                  <li *ngIf="project.info.region"><strong>Регион:</strong> {{ project.info.region }}</li>
+                  <li *ngIf="project.info.style"><strong>Стиль:</strong> {{ project.info.style }}</li>
+                  <li *ngIf="project.info.area"><strong>Площадь:</strong> {{ project.info.area }}</li>
+                  <li *ngIf="project.info.startYear"><strong>Год:</strong> {{ project.info.startYear }}</li>
+                  <li *ngIf="project.info.endYear"><strong>Год:</strong> {{ project.info.endYear }}</li>
                 </ul>
               </div>
 

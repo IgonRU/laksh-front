@@ -2,6 +2,7 @@ import { Component, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LakshProjectBlockData } from '../../_classes/project-block.class';
 import { LakshSectionTitleComponent } from "../../../../_components/section-title/section-title.component";
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'laksh-gallery-block',
@@ -15,6 +16,10 @@ export class LakshGalleryBlockComponent {
   
   isLightboxOpen = signal(false);
   currentImageIndex = signal(0);
+
+  getImageRoute(image: string): string {
+    return environment.backendHost + image;
+  }
 
   openLightbox(index: number): void {
     this.currentImageIndex.set(index);

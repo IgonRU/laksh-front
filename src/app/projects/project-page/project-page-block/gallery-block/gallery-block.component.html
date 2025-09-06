@@ -12,7 +12,7 @@
         <div *ngFor="let image of data().images; let i = index" 
              class="gallery-item" 
              (click)="openLightbox(i)">
-          <img [src]="image" [alt]="'Изображение галереи ' + (i + 1)">
+          <img [src]="getImageRoute(image)" [alt]="'Изображение галереи ' + (i + 1)">
           <div class="gallery-overlay">
             <div class="gallery-icon">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@
     </button>
     
     <div class="lightbox-image-container">
-      <img [src]="data().images![currentImageIndex()]" 
+      <img [src]="getImageRoute(data().images![currentImageIndex()])" 
            [alt]="'Изображение галереи ' + (currentImageIndex() + 1)"
            class="lightbox-image">
     </div>

@@ -5,7 +5,7 @@ export class LakshProjectListItem extends JsonInitializable {
     title: string;
     description: string;
     image: string;
-    url: string;
+    alias: string;
 
     constructor(data?: any) {
         super(data);

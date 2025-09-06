@@ -9,7 +9,7 @@ export class LakshProject extends JsonInitializable {
     titleLead: string;
     slogan: string;
     description: string;
-    url: string;
+    alias: string;
 
     info: LakshProjectInfo;
     blocks: LakshProjectBlock[];

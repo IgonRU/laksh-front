@@ -5,7 +5,7 @@ export interface Project {
   image: string;
   category: string;
   technologies: string[];
-  url?: string;
+  alias?: string;
   github?: string;
   createdAt: string;
   updatedAt: string;

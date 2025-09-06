@@ -1,14 +1,14 @@
 {
   "name": "laksh-front",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "scripts": {
     "ng": "ng",
     "prebuild": "node scripts/generate-build-info.js",
     "start": "ng serve --host laksh.local --port 5200",
     "build": "ng build",
-    "build:dev": "ng build --configuration dev",
-    "build:staging": "ng build --configuration staging",
     "build:prod": "ng build --configuration production",
+    "build:staging": "ng build --configuration staging",
+    "build:dev": "ng build --configuration dev",
     "build:patch": "npm run version:bump patch && npm run build:prod",
     "build:minor": "npm run version:bump minor && npm run build:prod",
     "build:major": "npm run version:bump major && npm run build:prod",
