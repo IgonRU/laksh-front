@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LakshFixedBackgroundBlockComponent } from "../../../_components/fixed-background-block/fixed-background-block.component";
 
@@ -9,6 +9,15 @@ import { LakshFixedBackgroundBlockComponent } from "../../../_components/fixed-b
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']
 })
-export class HeroComponent {
-  backgroundImage = "url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2000&q=60')";
+export class HeroComponent implements OnInit {
+  backgroundImage = "url('/assets/images/mainpage/mainpage-image-1.jpg')";
+
+  backgroundImages: string[] = [
+    "url('/assets/images/mainpage/mainpage-image-1.jpg')",
+    "url('/assets/images/mainpage/mainpage-image-2.jpg')"
+  ];
+
+  ngOnInit(): void {
+    this.backgroundImage = this.backgroundImages[Math.floor(Math.random() * this.backgroundImages.length)];
+  }
 }
