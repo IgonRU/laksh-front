@@ -24,23 +24,16 @@
       </laksh-section-title>
       <div class="section-content">
         
-        <laksh-about-person 
-          [portrait]="'/assets/images/about-us/portrait.png'"
-          [name]="'ЕЛЕНА'"
-          [title]="'ЛАНДШАФТНЫЙ АРХИТЕКТОР'"
-          [role]="'Основатель и творческий директор'"
-          [biography]="'Более 5 лет опыта в ландшафтном дизайне - про гармонию, атмосферу и микробики. Разговаривает с растениями. Выпускник школы Сосновки'">
-        </laksh-about-person>
-
-        <laksh-about-person 
-          [portrait]="'/assets/images/about-us/portrait.png'"
-          [name]="'СТАНИСЛАВ'"
-          [title]="'РУКОВОДИТЕЛЬ'"
-          [role]="'Основатель, технический директор'"
-          [biography]="'Более 20 лет опыта в руководстве проектами. Маркетинг, работа с клиентами и подрядчиками, технические вопросы.'"
-          [rtl]="true"
-        >
-        </laksh-about-person>
+        @for (person of aboutUsPersons; track person.id) {
+          <laksh-about-person 
+            [portrait]="person.portrait"
+            [name]="person.name"
+            [title]="person.title"
+            [role]="person.role"
+            [biography]="person.biography"
+            [rtl]="$odd">
+          </laksh-about-person>
+        }
 
       </div>
     </section>
