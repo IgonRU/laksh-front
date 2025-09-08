@@ -47,7 +47,7 @@ export class ServicesComponent {
         'Озеленение, стабилизация газонов, мульчирование'
       ],
       note: 'Опытные бригады, проверенные материалы, авторский надзор.',
-      image: '/assets/images/services/services-plant-1.jpg',
+      image: 'https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?auto=format&fit=crop&w=2400&q=70',
       imageAlt: 'Реализация — благоустройство и озеленение на участке',
       reverse: true
     }

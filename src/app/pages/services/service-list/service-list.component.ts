@@ -42,7 +42,7 @@ export class LakshServiceListComponent implements OnInit {
     {
       title: 'Реализация',
       description: 'В нашей компании работают специально подготовленные специалисты, которые смогут реализовать проект любой сложности.',
-      image: '/assets/images/services/services-plant-1.jpg',
+      image: 'https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?auto=format&fit=crop&w=2400&q=70',
       serviceSteps: [
         {
           title: 'Подготовка документации',

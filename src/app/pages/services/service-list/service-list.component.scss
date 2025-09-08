@@ -63,6 +63,17 @@
     }
 
     @media (max-width: 1000px) {
+        .service-item-container {
+            gap: 2rem;
+            
+            .service-item-image {
+                flex: 0 0 400px;
+                height: 300px;
+            }
+        }
+    }
+
+    @media (max-width: 800px) {
         gap: 3rem;
         
         .service-item-container {
@@ -72,7 +83,7 @@
             .service-item-image {
                 flex: 0 0 auto;
                 width: 100%;
-                height: 400px;
+                height: 360px;
                 order: -1; // Изображение всегда сверху на мобильных
             }
             
