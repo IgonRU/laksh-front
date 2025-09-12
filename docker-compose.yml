@@ -4,9 +4,9 @@ services:
     build: .
     image: laksh-front
     ports:
-    - 80:80
+    - 80:4000
     expose:
-      - 80
+      - 4000
     networks:
       - internalnet
 

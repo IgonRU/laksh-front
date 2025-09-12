@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FeedbackFormService } from './feedback-form.service';
+import { IgonHttpResponse } from '@igon/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -74,23 +76,40 @@ export class FeedbackFormComponent {
       return;
     }
     
-    if (!this.formData.phone) {
-      this.phoneError = 'Введите номер телефона';
-    } else if (!this.phonePattern.test(this.formData.phone)) {
+    if (this.formData.phone && !this.phonePattern.test(this.formData.phone)) {
       this.phoneError = 'Введите корректный номер телефона';
     } else {
       this.phoneError = '';
     }
   }
 
+  constructor(private feedbackService: FeedbackFormService) {}
+
   onSubmit(): void {
     // Помечаем все поля как "тронутые" для показа ошибок
     this.phoneTouched = true;
     
-    if (this.validateForm()) {
-      console.log('Form submitted:', this.formData);
-      // Здесь будет логика отправки формы
-    }
+    if (!this.validateForm()) return;
+
+    this.feedbackService
+      .submitFeedback({
+        name: this.formData.name.trim(),
+        request: this.formData.request.trim(),
+        phone: this.formData.phone?.trim() || undefined,
+      })
+      .subscribe({
+        next: (resp: IgonHttpResponse) => {
+          const message = (resp?.data as any)?.message || 'Спасибо! Мы свяжемся с вами.';
+          alert(message);
+          this.formData = { name: '', phone: '', request: '' };
+          this.phoneTouched = false;
+          this.phoneError = '';
+        },
+        error: (err) => {
+          const message = err?.data?.message || 'Ошибка при отправке формы. Попробуйте позже.';
+          alert(message);
+        },
+      });
   }
 
   private validateForm(): boolean {
@@ -100,7 +119,7 @@ export class FeedbackFormComponent {
       return false;
     }
     
-    if (!this.formData.phone || this.phoneError) {
+    if (this.phoneError) {
       return false;
     }
     
