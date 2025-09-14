@@ -9,18 +9,18 @@
     </div>
   </div>
   
-  <div class="slider-dots" role="tablist">
+  <div class="slider-dots" role="tablist" *ngIf="projects?.length">
     <button class="dot" *ngFor="let _ of projects; let i = index" (click)="goTo(i)" [class.active]="i === currentIndex" [attr.aria-selected]="i === currentIndex"></button>
   </div>
   
   <div class="slider-container">
     <div class="slider-track" [style.transform]="'translateX(-' + (currentIndex * 100) + 'vw)'">
       <div class="slide" *ngFor="let project of projects; let i = index" [class.active]="i === currentIndex">
-        <div class="slide-image" [style.background-image]="'url(' + project.image + ')'"></div>
+        <div class="slide-image" [style.background-image]="'url(' + getImageRoute(project.image) + ')'"></div>
         <div class="slide-overlay"></div>
         <div class="slide-content">
-          <h3 class="slide-title"><a href="{{ project.route }}">{{ project.title }}</a></h3>
-          <p class="slide-description"><a href="{{ project.route }}">{{ project.description }}</a></p>
+          <h3 class="slide-title"><a [routerLink]="['/project', project.alias]">{{ project.title }}</a></h3>
+          <p class="slide-description"><a [routerLink]="['/project', project.alias]">{{ project.titleLead || project.slogan }}</a></p>
         </div>
       </div>
     </div>

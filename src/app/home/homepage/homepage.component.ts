@@ -7,6 +7,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ServicesComponent } from './services/services.component';
 import { AboutComponent } from './about/about.component';
 import { LakshFixedBackgroundBlockComponent } from '../../_components/fixed-background-block/fixed-background-block.component';
+import { LakshMainpageSettings } from './_classes/mainpage.class';
+import { LakshHomepageService } from './homepage.service';
 
 @Component({
   selector: 'laksh-homepage',
@@ -24,12 +26,18 @@ import { LakshFixedBackgroundBlockComponent } from '../../_components/fixed-back
 export class LakshHomepageComponent implements OnInit, AfterViewInit, OnDestroy {
   heroBackgroundImage = "url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2000&q=60')";
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  mainpageSettings: LakshMainpageSettings;
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private homepageService: LakshHomepageService
+  ) {}
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.initGlobalStyles();
     }
+    this.loadMainpageSettings();
   }
 
   ngAfterViewInit(): void {
@@ -142,5 +150,16 @@ export class LakshHomepageComponent implements OnInit, AfterViewInit, OnDestroy 
 
   private cleanupEventListeners(): void {
     // Здесь можно добавить очистку event listeners если нужно
+  }
+
+  private loadMainpageSettings(): void {
+    this.homepageService.getMainpage().subscribe({
+      next: (res) => {
+        this.mainpageSettings = new LakshMainpageSettings(res.data);
+      },
+      error: () => {
+        this.mainpageSettings = new LakshMainpageSettings({ title: '', lead: '', portfolio: [] });
+      }
+    });
   }
 }

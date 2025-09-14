@@ -1,20 +1,15 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, ElementRef, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { LakshSectionTitleComponent } from "../../../_components/section-title/section-title.component";
-
-export interface Project {
-  id: number;
-  title: string;
-  image: string;
-  description: string;
-  route: string;
-}
+import { LakshProject } from "../../../projects/project-page/_classes/project.class";
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'laksh-projects',
   standalone: true,
-  imports: [CommonModule, LakshSectionTitleComponent],
+  imports: [CommonModule, RouterModule, LakshSectionTitleComponent],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
@@ -25,36 +20,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
     private elementRef: ElementRef
   ) {}
 
-  projects: Project[] = [
-    {
-      id: 1,
-      title: 'Проект 1 — Сосновый бор',
-      description: 'Описание проекта 1',
-      route: '/projects/1',
-      image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=70'
-    },
-    {
-      id: 2,
-      title: 'Проект 2 — Береговая линия',
-      description: 'Описание проекта 2',
-      route: '/projects/2',
-      image: 'https://images.unsplash.com/photo-1459664018906-085c36f472af?auto=format&fit=crop&w=2400&q=70'
-    },
-    {
-      id: 3,
-      title: 'Проект 3 — Дача у озера',
-      description: 'Описание проекта 3',
-      route: '/projects/3',
-      image: 'https://images.unsplash.com/photo-1493246318656-5bfd4cfb29b8?auto=format&fit=crop&w=2400&q=60'
-    },
-    {
-      id: 4,
-      title: 'Проект 4 — Каменный сад',
-      description: 'Описание проекта 4',
-      route: '/projects/4',
-      image: 'https://images.unsplash.com/photo-1495954484750-af469f2f9be5?auto=format&fit=crop&w=2400&q=60'
-    }
-  ];
+  @Input() projects: LakshProject[] = [];
 
   currentIndex = 0;
   get lastIndex(): number { return this.projects.length - 1; }
@@ -284,5 +250,9 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
     this.dragOffsetX = 0;
     this.dragOffsetY = 0;
     this.isHorizontalSwipe = false;
+  }
+
+  getImageRoute(image: string): string {
+    return environment.backendHost + image;
   }
 }

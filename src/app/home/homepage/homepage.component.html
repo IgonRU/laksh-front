@@ -1,7 +1,12 @@
-<laksh-intro></laksh-intro>
+<laksh-intro 
+[title]="mainpageSettings?.title" 
+[lead]="mainpageSettings?.lead"
+></laksh-intro>
 
 <laksh-hero></laksh-hero>
 
-<laksh-projects></laksh-projects>
+<laksh-projects 
+[projects]="mainpageSettings?.portfolio"
+></laksh-projects>
 
 <laksh-services></laksh-services>
