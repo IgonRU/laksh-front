@@ -1,13 +1,18 @@
 <form class="feedback-form" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label class="form-label">Ваше имя</label>
+    <label class="form-label">Ваше имя <span class="required-star">*</span></label>
     <input 
       type="text" 
       class="form-input" 
       [(ngModel)]="formData.name" 
       name="name" 
+      (blur)="onNameBlur()"
+      [class.error]="nameError"
       required
       placeholder="Пожалуйста, преставьтесь">
+    <div class="error-row">
+      <div class="error-message" *ngIf="nameError">{{ nameError }}</div>
+    </div>
   </div>
 
   <div class="form-group">
@@ -22,27 +27,49 @@
       (blur)="onPhoneBlur()"
       placeholder="+7 (___) ___-__-__"
       >
-    <div class="error-message" *ngIf="phoneError">{{ phoneError }}</div>
+    <div class="error-row">
+      <div class="error-message" *ngIf="phoneError">{{ phoneError }}</div>
+    </div>
   </div>
 
   <div class="form-group">
     <label class="form-label">
       Здесь вы можете уточнить ваш запрос, а также указать удобный способ связи.
+      <span class="required-star">*</span>
     </label>
     <textarea 
       class="form-textarea" 
       [(ngModel)]="formData.request" 
       name="request" 
       rows="3"
+      (blur)="onRequestBlur()"
+      [class.error]="requestError"
       placeholder="Опишите ваш запрос..."
       required></textarea>
+    <div class="error-row">
+      <div class="error-message" *ngIf="requestError">{{ requestError }}</div>
+    </div>
   </div>
 
   <div class="privacy-notice">
     Отправляя данные, вы автоматически соглашаетесь с <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a>
   </div>
 
+  <div class="form-error-global" *ngIf="errorMessage">{{ errorMessage }}</div>
+
   <button type="submit" class="submit-button">
     ЗАКАЗАТЬ ЗВОНОК
   </button>
+
+  <div 
+    class="success-overlay" 
+    (click)="hideOverlay()"
+    [class.visible]="showSuccessOverlay && !overlayFadingOut"
+    [class.fade-out]="overlayFadingOut"
+    tabindex="0"
+    role="button"
+    aria-label="Закрыть уведомление"
+  >
+    <div class="overlay-content" [innerHTML]="successMessage"></div>
+  </div>
 </form>
