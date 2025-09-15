@@ -24,7 +24,7 @@ import { LakshHomepageService } from './homepage.service';
   styleUrls: ['./homepage.component.scss']
 })
 export class LakshHomepageComponent implements OnInit, AfterViewInit, OnDestroy {
-  heroBackgroundImage = "url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2000&q=60')";
+  ;
 
   mainpageSettings: LakshMainpageSettings;
 
@@ -158,7 +158,7 @@ export class LakshHomepageComponent implements OnInit, AfterViewInit, OnDestroy 
         this.mainpageSettings = new LakshMainpageSettings(res.data);
       },
       error: () => {
-        this.mainpageSettings = new LakshMainpageSettings({ title: '', lead: '', portfolio: [] });
+        this.mainpageSettings = new LakshMainpageSettings({ title: '', lead: '', portfolio: [], heroImages: [] });
       }
     });
   }

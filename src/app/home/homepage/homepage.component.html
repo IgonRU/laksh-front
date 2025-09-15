@@ -1,12 +1,14 @@
 <laksh-intro 
-[title]="mainpageSettings?.title" 
-[lead]="mainpageSettings?.lead"
-></laksh-intro>
+    [title]="mainpageSettings?.title" 
+    [lead]="mainpageSettings?.lead">
+</laksh-intro>
 
-<laksh-hero></laksh-hero>
+<laksh-hero 
+    [heroImages]="mainpageSettings?.heroImages || []">
+</laksh-hero>
 
 <laksh-projects 
-[projects]="mainpageSettings?.portfolio"
-></laksh-projects>
+    [projects]="mainpageSettings?.portfolio">
+</laksh-projects>
 
 <laksh-services></laksh-services>

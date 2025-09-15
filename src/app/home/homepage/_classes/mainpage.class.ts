@@ -4,6 +4,7 @@ import { LakshProject } from "../../../projects/project-page/_classes/project.cl
 export class LakshMainpageSettings extends JsonInitializable {
   title: string;
   lead: string;
+  heroImages: string[];
   portfolio: LakshProject[];
 
   constructor(data?: Partial<LakshMainpageSettings>) {
@@ -14,5 +15,9 @@ export class LakshMainpageSettings extends JsonInitializable {
       }
     };
     super(data, undefined, nestedClassMappings);
+    // Безопасный дефолт на случай отсутствия heroImages в ответе
+    if (!Array.isArray(this.heroImages)) {
+      this.heroImages = [];
+    }
   }
 }
