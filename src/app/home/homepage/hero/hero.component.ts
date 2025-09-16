@@ -13,9 +13,9 @@ import { environment } from '../../../../environments/environment';
 export class HeroComponent {
   heroImage = computed(() => {
     const list = this.heroImages();
-    if (!Array.isArray(list) || list.length === 0) return '';
+    if (!Array.isArray(list) || list.length === 0) return '/assets/images/mainpage/mainpage-default.png';
     const pick = list[Math.floor(Math.random() * list.length)];
-    if (!pick) return 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2000&q=60';
+    if (!pick) return '';
     return this.getImageRoute(pick);
   });
   heroImages = input<string[]>([]);
