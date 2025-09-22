@@ -2,12 +2,20 @@
   <div class="menu-columns">
     <div class="column">
       @for (item of getLeftColumn(); track item.name) {
-        <a [routerLink]="item.route">{{ item.title }}</a>
+        @if (item.route?.includes('#')) {
+          <a [attr.href]="item.route" (click)="onMenuClick($event, item.route)">{{ item.title }}</a>
+        } @else {
+          <a [routerLink]="item.route">{{ item.title }}</a>
+        }
       }
     </div>
     <div class="column">
       @for (item of getRightColumn(); track item.name) {
-        <a [routerLink]="item.route">{{ item.title }}</a>
+        @if (item.route?.includes('#')) {
+          <a [attr.href]="item.route" (click)="onMenuClick($event, item.route)">{{ item.title }}</a>
+        } @else {
+          <a [routerLink]="item.route">{{ item.title }}</a>
+        }
       }
     </div>
   </div>
