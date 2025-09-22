@@ -1,6 +1,6 @@
 {
   "name": "laksh-front",
-  "version": "0.3.20",
+  "version": "0.3.21",
   "scripts": {
     "ng": "ng",
     "prebuild": "node scripts/generate-build-info.js",

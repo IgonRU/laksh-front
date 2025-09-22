@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import {IgonResponsiveLayoutComponent} from "@igon/responsive-layout";
 import {LakshPageFooterComponent} from "./_layout/page-footer/page-footer.component";
 import {LakshPageHeaderComponent} from "./_layout/page-header/page-header.component";
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
   isMobileMenuOpen = signal(false);
   
-  constructor(private mobileMenuService: MobileMenuService) {}
+  constructor(private mobileMenuService: MobileMenuService, private router: Router) {}
 
   menu: LakshHeaderMenuItem[] = [
     new LakshHeaderMenuItem({
@@ -68,6 +69,27 @@ export class AppComponent implements OnInit, OnDestroy {
       this.mobileMenuService.isOpen$.subscribe(isOpen => {
         this.isMobileMenuOpen.set(isOpen);
       })
+    );
+
+    // Сбрасываем скролл в контейнере лэйаута при навигации без якоря
+    this.subscription.add(
+      this.router.events
+        .pipe(filter(e => e instanceof NavigationEnd))
+        .subscribe((e) => {
+          const url = (e as NavigationEnd).urlAfterRedirects || (e as NavigationEnd).url || '';
+          if (url.includes('#')) { return; }
+          setTimeout(() => {
+            const layout = document.querySelector('igon-responsive-layout.layout-full') as HTMLElement | null;
+            if (layout && typeof layout.scrollTo === 'function') {
+              layout.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+            } else if (layout) {
+              (layout as any).scrollTop = 0;
+              (layout as any).scrollLeft = 0;
+            } else {
+              window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+            }
+          }, 0);
+        })
     );
   }
 
