@@ -1,11 +1,12 @@
 import { JsonInitializable } from "./json-initializable.class";
 
 export class LakshPerson extends JsonInitializable {
-    id: number;
-    portrait: string;
+    active: boolean;
+    alias: string;
     name: string;
     title: string;
     role: string;
+    portrait: string;
     biography: string;
 
     constructor(data?: any) {
