@@ -24,7 +24,7 @@
       </laksh-section-title>
       <div class="section-content">
         
-        @for (person of aboutUsPersons; track person.id) {
+        @for (person of aboutUsPersons; track person.alias) {
           <laksh-about-person 
             [portrait]="person.portrait"
             [name]="person.name"
