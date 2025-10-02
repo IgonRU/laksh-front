@@ -1,0 +1,20 @@
+import { Component, input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { LakshProjectBlockData } from '../../../../projects/project-page/_classes/project-block.class';
+import { LakshSectionTitleComponent } from "../../../section-title/section-title.component";
+import { environment } from '../../../../../environments/environment';
+
+@Component({
+  selector: 'laksh-image-block',
+  standalone: true,
+  imports: [CommonModule, LakshSectionTitleComponent],
+  templateUrl: './image-block.component.html',
+  styleUrls: ['./image-block.component.scss']
+})
+export class LakshImageBlockComponent {
+  data = input.required<LakshProjectBlockData>();
+
+  getImageRoute(image: string): string {
+    return environment.backendHost + image;
+  }
+}

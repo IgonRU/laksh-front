@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, signal } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -23,6 +24,7 @@ import {MobileMenuService} from "./_layout/page-header/mobile-menu/mobile-menu.s
 })
 export class AppComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
+  private platformId = inject(PLATFORM_ID);
   isMobileMenuOpen = signal(false);
   
   constructor(private mobileMenuService: MobileMenuService, private router: Router) {}
@@ -78,17 +80,21 @@ export class AppComponent implements OnInit, OnDestroy {
         .subscribe((e) => {
           const url = (e as NavigationEnd).urlAfterRedirects || (e as NavigationEnd).url || '';
           if (url.includes('#')) { return; }
-          setTimeout(() => {
-            const layout = document.querySelector('igon-responsive-layout.layout-full') as HTMLElement | null;
-            if (layout && typeof layout.scrollTo === 'function') {
-              layout.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-            } else if (layout) {
-              (layout as any).scrollTop = 0;
-              (layout as any).scrollLeft = 0;
-            } else {
-              window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-            }
-          }, 0);
+          
+          // Проверка платформы перед обращением к DOM
+          if (isPlatformBrowser(this.platformId)) {
+            setTimeout(() => {
+              const layout = document.querySelector('igon-responsive-layout.layout-full') as HTMLElement | null;
+              if (layout && typeof layout.scrollTo === 'function') {
+                layout.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+              } else if (layout) {
+                (layout as any).scrollTop = 0;
+                (layout as any).scrollLeft = 0;
+              } else {
+                window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+              }
+            }, 0);
+          }
         })
     );
   }

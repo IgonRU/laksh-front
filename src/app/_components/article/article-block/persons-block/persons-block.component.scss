@@ -1,10 +1,20 @@
-@import '../../../../styles/variables.scss';
+@import '../../../../../styles/variables.scss';
 
-.about-person {
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.persons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.person-item {
   display: flex;
   gap: 3rem;
   align-items: flex-start;
-  margin-bottom: 4rem;
   
   .portrait-section {
     flex: 0 0 50%;
@@ -47,14 +57,14 @@
     
     .role {
       font-size: 1.1rem;
-              color: $color-primary;
+      color: $color-primary;
       margin-bottom: 1.5rem;
       font-weight: 500;
     }
     
     .biography {
       font-size: 1rem;
-              color: $color-text-dark;
+      color: $color-text-dark;
       line-height: 1.6;
       text-align: justify;
     }
@@ -71,8 +81,8 @@
     padding: 0;
 
     .portrait-section {
-        margin-left: -0.5rem;
-        margin-right: -0.5rem;
+      margin-left: -0.5rem;
+      margin-right: -0.5rem;
     }
     
     .info-section {
@@ -96,7 +106,7 @@
     }
 
     &.rtl {
-        flex-direction: column;
+      flex-direction: column;
     }
   }
   
@@ -123,3 +133,4 @@
     }
   }
 }
+

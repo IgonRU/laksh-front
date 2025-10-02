@@ -1,0 +1,51 @@
+<div class="article">
+  @switch (templateType()) {
+    @case (ArticleTemplate.PROMO) {
+      <laksh-page-promo 
+        [title]="article().title" 
+        [subtitle]="article().titleLead"
+        [image]="getImageRoute(article().image)">
+        <ng-container *ngTemplateOutlet="articleContent"></ng-container>
+      </laksh-page-promo>
+    }
+    @default {
+      <laksh-page-article 
+        [title]="article().title" 
+        [subtitle]="article().titleLead">
+        <ng-container *ngTemplateOutlet="articleContent"></ng-container>
+      </laksh-page-article>
+    }
+  }
+</div>
+
+<!-- Общий контент для всех шаблонов -->
+<ng-template #articleContent>
+  @if (displayArticleDetails()) {
+  <div class="container-desktop">
+    <section class="page-section">
+      <div class="section-content">
+        <div class="article-details">
+          
+          <!-- Верхняя секция: слоган и описание -->
+          <div class="details-top">
+            <laksh-lead-content>
+              <span class="lead">{{ article().slogan }}</span>
+              <div class="content" [innerHTML]="article().description"></div>
+            </laksh-lead-content>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </div>
+}
+
+  <!-- Блоки контента статьи -->
+  @if (article().blocks && article().blocks.length > 0) {
+    <laksh-article-block 
+      *ngFor="let block of article().blocks" 
+      [block]="block">
+    </laksh-article-block>
+  }
+</ng-template>

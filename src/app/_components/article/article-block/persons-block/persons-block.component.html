@@ -1,0 +1,43 @@
+<div class="container-desktop">
+
+  <section class="page-section">
+    <laksh-section-title 
+      *ngIf="data().title"
+      [title]="data().title" 
+      [subtitle]="data().subtitle">
+    </laksh-section-title>
+    
+    <div class="section-content">
+      <div *ngIf="data().persons && data().persons.length > 0" class="persons-list">
+        <div *ngFor="let person of data().persons; let i = index" 
+             class="person-item"
+             [class.rtl]="i % 2 !== 0">
+          
+          <div class="portrait-section">
+            <div class="portrait" *ngIf="person.portrait">
+              <img [src]="getImageRoute(person.portrait)" [alt]="person.name" />
+            </div>
+          </div>
+          
+          <div class="info-section">
+            <div class="name-title" *ngIf="person.name || person.title">
+              <h2 class="name" *ngIf="person.name">{{ person.name }}</h2>
+              <span class="title" *ngIf="person.title">{{ person.title }}</span>
+            </div>
+            
+            <div class="role" *ngIf="person.role">
+              {{ person.role }}
+            </div>
+            
+            <div class="biography" *ngIf="person.biography">
+              {{ person.biography }}
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
