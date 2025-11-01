@@ -3,12 +3,14 @@
     flex-direction: column;
     gap: 4rem;
 
-    .service-item-container {
+    .service-group-container {
         display: flex;
         align-items: flex-start;
         gap: 4rem;
+        will-change: transform;
+        contain: layout;
         
-        .service-item-image {
+        .service-group-image {
             flex: 0 0 600px;
             height: 450px;
             overflow: hidden;
@@ -25,7 +27,7 @@
             }
         }
         
-        .service-item-content {
+        .service-group-content {
             flex: 1;
         }
         
@@ -41,10 +43,10 @@
     }
 
     @media (max-width: 1500px) {
-        .service-item-container {
+        .service-group-container {
             gap: 3rem;
             
-            .service-item-image {
+            .service-group-image {
                 flex: 0 0 500px;
                 height: 375px;
             }
@@ -52,10 +54,10 @@
     }
 
     @media (max-width: 1200px) {
-        .service-item-container {
+        .service-group-container {
             gap: 2.5rem;
             
-            .service-item-image {
+            .service-group-image {
                 flex: 0 0 450px;
                 height: 337px;
             }
@@ -63,10 +65,10 @@
     }
 
     @media (max-width: 1000px) {
-        .service-item-container {
+        .service-group-container {
             gap: 2rem;
             
-            .service-item-image {
+            .service-group-image {
                 flex: 0 0 400px;
                 height: 300px;
             }
@@ -76,18 +78,18 @@
     @media (max-width: 800px) {
         gap: 3rem;
         
-        .service-item-container {
+        .service-group-container {
             flex-direction: column;
             gap: 2rem;
             
-            .service-item-image {
+            .service-group-image {
                 flex: 0 0 auto;
                 width: 100%;
                 height: 360px;
                 order: -1; // Изображение всегда сверху на мобильных
             }
             
-            .service-item-content {
+            .service-group-content {
                 width: 100%;
             }
             
@@ -102,10 +104,10 @@
     @media (max-width: 700px) {
         gap: 2rem;
         
-        .service-item-container {
+        .service-group-container {
             gap: 1.5rem;
             
-            .service-item-image {
+            .service-group-image {
                 height: 288px;
             }
         }

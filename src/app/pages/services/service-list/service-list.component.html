@@ -1,25 +1,25 @@
-<div *ngIf="serviceItems.length > 0" class="service-list-wrapper">
+<div *ngIf="serviceGroups.length > 0" class="service-list-wrapper">
     <div 
-        *ngFor="let serviceItem of serviceItems; let serviceIndex = index" 
-        class="service-item-container"
-        [class.even]="serviceIndex % 2 === 0"
-        [class.odd]="serviceIndex % 2 === 1">
+        *ngFor="let serviceGroup of serviceGroups; let groupIndex = index" 
+        class="service-group-container"
+        [class.even]="groupIndex % 2 === 0"
+        [class.odd]="groupIndex % 2 === 1">
         
-        <div class="service-item-image">
-            <img [src]="serviceItem.image" [alt]="serviceItem.title" />
+        <div class="service-group-image">
+            <img [src]="serviceGroup.image" [alt]="serviceGroup.title" />
         </div>
         
-        <div class="service-item-content">
-            <laksh-service-item 
-                [serviceItem]="serviceItem"
-                [serviceIndex]="serviceIndex"
-                [toggleStep]="getToggleStepFunction()"
-                [isStepOpen]="getIsStepOpenFunction()">
-            </laksh-service-item>
+        <div class="service-group-content">
+            <laksh-service-group 
+                [serviceGroup]="serviceGroup"
+                [groupIndex]="groupIndex"
+                [toggleService]="getToggleServiceFunction()"
+                [isServiceOpen]="getIsServiceOpenFunction()">
+            </laksh-service-group>
         </div>
     </div>
 </div>
 
-<div *ngIf="serviceItems.length === 0" class="service-list-wrapper">
+<div *ngIf="serviceGroups.length === 0" class="service-list-wrapper">
     <div class="service-list-title">No services found</div>
 </div>
