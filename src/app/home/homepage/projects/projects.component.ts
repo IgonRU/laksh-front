@@ -45,8 +45,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
   goTo(index: number): void { 
     this.currentIndex = index; 
   }
-
-  private intersectionObserver?: IntersectionObserver;
   
   // Переменные для drag & drop и touch
   private isDragging = false;
@@ -65,38 +63,12 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.setupIntersectionObserver();
       this.setupDragAndTouch();
     }
   }
 
   ngOnDestroy(): void {
-    if (this.intersectionObserver) {
-      this.intersectionObserver.disconnect();
-    }
     this.cleanupDragAndTouch();
-  }
-
-  private setupIntersectionObserver(): void {
-    this.intersectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-            // Компонент показан на 50% и более - прокручиваем к верху экрана
-            this.elementRef.nativeElement.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.5, // Срабатывает при 50% видимости
-        rootMargin: '0px'
-      }
-    );
-
-    this.intersectionObserver.observe(this.elementRef.nativeElement);
   }
 
   private setupDragAndTouch(): void {
