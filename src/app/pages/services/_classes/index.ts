@@ -1,4 +1,4 @@
 export { JsonInitializable } from '../../../_classes/json-initializable.class';
-export { LakshServiceItem } from './service-item.class';
-export { LakshServiceStep } from './service-step.class';
+export { LakshServiceGroup } from './service-group.class';
+export { LakshService } from './service.class';
 export * from './field-mappings';

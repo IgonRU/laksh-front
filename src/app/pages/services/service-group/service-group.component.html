@@ -1,0 +1,31 @@
+<div *ngIf="serviceGroup" class="service-group-wrapper">
+    <div class="service-group-title">
+        <h3>{{ serviceGroup.title }}</h3>
+    </div>
+    <div class="service-group-description">
+        {{ serviceGroup.description }}
+    </div>
+    
+    <div class="service-group-items" #serviceGroupItems>
+        <div 
+            *ngFor="let service of serviceGroup.services; let i = index" 
+            class="service-item"
+            [class.open]="isServiceOpen(groupIndex, i)">
+            
+            <div class="service-header" (click)="onServiceClick(i)">
+                <div class="service-title"><h4>{{ formatServiceNumber(i + 1) }}. {{ service.title }}</h4></div>
+                <div class="service-toggle">
+                    <span class="toggle-icon" [class.open]="isServiceOpen(groupIndex, i)">+</span>
+                </div>
+            </div>
+            
+            <div class="service-content">
+                <div class="service-description">{{ service.description }}</div>
+                <div *ngIf="service.linkUrl && service.linkLabel" class="service-link">
+                    <a [href]="service.linkUrl" target="_blank">{{ service.linkLabel }} ></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

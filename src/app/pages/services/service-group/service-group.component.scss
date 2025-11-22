@@ -1,9 +1,9 @@
 @import '../../../../styles/variables.scss';
 
-.service-item-wrapper {
+.service-group-wrapper {
     margin-bottom: 3rem;
     
-    .service-item-title {
+    .service-group-title {
         margin-bottom: 1.5rem;
         
         h3 {
@@ -14,7 +14,7 @@
         }
     }
     
-            .service-item-description {
+            .service-group-description {
             font-size: 1.1rem;
             color: $color-text-gray;
             line-height: 1.6;
@@ -23,18 +23,19 @@
         }
 }
 
-.service-item-steps {
+.service-group-items {
     display: flex;
     flex-direction: column;
+    transition: height 0.5s ease;
     
-    .service-step-item {
+    .service-item {
         border-top: 1px solid $color-border-primary;
         
         &:last-child {
             border-bottom: 2px solid $color-border-primary;
         }
         
-        .step-header {
+        .service-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -43,14 +44,14 @@
             transition: all 0.2s ease;
             
             &:hover {
-                .step-title {
+                .service-title {
                     h4 {
                         color: $color-primary-hover;
                     }
                 }
             }
             
-            .step-title {
+            .service-title {
                 h4 {
                     font-size: 1.2rem;
                     color: $color-primary;
@@ -59,7 +60,7 @@
                 }
             }
             
-            .step-toggle {
+            .service-toggle {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -82,29 +83,59 @@
             }
         }
         
-        .step-content {
+        .service-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.4s ease;
+            opacity: 0;
+            transform: translateY(-0.5rem);
+            transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
             
-            .step-description {
+            .service-description {
                 font-size: 1rem;
                 color: $color-text-dark;
-                line-height: 1.2;
+                line-height: 0;
                 margin: 0;
                 max-width: 800px;
-                padding: 1rem 0 1.5rem 0;
-                transition: padding 0.3s ease, line-height 0.3s ease;
+                padding: 0;
+                transition: padding 0.4s ease, line-height 0.4s ease;
+            }
+
+            .service-link {
+                padding: 0;
+                transition: padding 0.4s ease;
+
+                a {
+                    color: $color-primary-light;
+                    text-decoration: underline;
+                    font-size: 1rem;
+                    line-height: 1.2;
+                    margin: 0;
+                    transition: color 0.2s ease;
+
+                    &:hover {
+                        color: $color-primary-hover;
+                        text-decoration: none;
+                    }
+                }
+                
             }
         }
         
-        &:not(.open) .step-content .step-description {
-            padding: 0;
-            line-height: 0;
-        }
-        
-        &.open .step-content {
-            max-height: 300px; /* достаточно большое значение для любого контента */
+        &.open .service-content {
+            max-height: 500px;
+            opacity: 1;
+            transform: translateY(0);
+            
+            .service-description {
+                line-height: 1.2;
+                padding: 1rem 0 1.5rem 0;
+            }
+            
+            .service-link {
+                padding-bottom: 1.5rem;
+            }
         }
     }
 }
+

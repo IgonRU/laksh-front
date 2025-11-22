@@ -4,13 +4,13 @@
 
 // Маппинги для API v1
 export const API_V1_FIELD_MAPPINGS = {
-    // ServiceItem маппинги
+    // ServiceGroup маппинги
     'service_title': 'title',
     'service_description': 'description',
     'service_image': 'image',
-    'steps': 'serviceSteps',
+    'steps': 'services',
     
-    // ServiceStep маппинги
+    // Service маппинги
     'step_title': 'title',
     'step_description': 'description',
     'step_image': 'image'
@@ -18,14 +18,14 @@ export const API_V1_FIELD_MAPPINGS = {
 
 // Маппинги для API v2
 export const API_V2_FIELD_MAPPINGS = {
-    // ServiceItem маппинги
+    // ServiceGroup маппинги
     'name': 'title',
     'desc': 'description',
     'img': 'image',
-    'service_steps': 'serviceSteps'
+    'service_steps': 'services'
 };
 
-// Маппинги для API v2 (ServiceStep)
+// Маппинги для API v2 (Service)
 export const API_V2_STEP_FIELD_MAPPINGS = {
     'name': 'title',
     'desc': 'description',
@@ -34,13 +34,13 @@ export const API_V2_STEP_FIELD_MAPPINGS = {
 
 // Маппинги для внешнего API
 export const EXTERNAL_API_FIELD_MAPPINGS = {
-    // ServiceItem маппинги
+    // ServiceGroup маппинги
     'serviceName': 'title',
     'serviceDescription': 'description',
     'serviceImage': 'image',
-    'serviceSteps': 'serviceSteps',
+    'serviceSteps': 'services',
     
-    // ServiceStep маппинги
+    // Service маппинги
     'stepName': 'title',
     'stepDescription': 'description',
     'stepImage': 'image'

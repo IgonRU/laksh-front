@@ -1,21 +1,22 @@
-import { LakshServiceStep } from "./service-step.class";
+import { LakshService } from "./service.class";
 import { JsonInitializable } from "../../../_classes/json-initializable.class";
 
-export class LakshServiceItem extends JsonInitializable {
+export class LakshServiceGroup extends JsonInitializable {
     title: string;
     description: string;
     image?: string | null;
 
-    serviceSteps: LakshServiceStep[];
+    services: LakshService[];
 
-    constructor(data?: Partial<LakshServiceItem>) {
+    constructor(data?: Partial<LakshServiceGroup>) {
         // Настраиваем маппинги для вложенных классов
         const nestedClassMappings = {
-            'serviceSteps': {
-                class: LakshServiceStep
+            'services': {
+                class: LakshService
             }
         };
 
         super(data, undefined, nestedClassMappings);
     }
 }
+
