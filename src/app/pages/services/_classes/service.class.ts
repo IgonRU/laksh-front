@@ -2,7 +2,8 @@ import { JsonInitializable } from "../../../_classes/json-initializable.class";
 
 export class LakshService extends JsonInitializable {
     title: string;
-    description: string;
+    description?: string | undefined;
+    descriptionShort: string;
     image?: string | undefined;
     linkLabel?: string | undefined;
     linkUrl?: string | undefined;

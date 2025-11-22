@@ -20,7 +20,7 @@
             </div>
             
             <div class="service-content">
-                <div class="service-description">{{ service.description }}</div>
+                <div class="service-description">{{ service.descriptionShort }}</div>
                 <div *ngIf="service.linkUrl && service.linkLabel" class="service-link">
                     <a [href]="'services/' + service.linkUrl" target="_blank">{{ service.linkLabel }} ></a>
                 </div>
