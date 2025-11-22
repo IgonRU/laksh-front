@@ -2,12 +2,8 @@
 
 .article {
   .article-details {
-    margin-bottom: 8rem;
-    margin-top: 4rem;
-    
-    .details-top {
-      margin-bottom: 4rem;
-    }
+    margin-top: 0;
+    row-gap: 2rem;
   }
 }
 
@@ -15,9 +11,6 @@
 @media (max-width: 1000px) {
   .article {
     .article-details {
-      .details-top {
-        margin-bottom: 3rem;
-      }
     }
   }
 }
@@ -26,11 +19,7 @@
 @media (max-width: 800px) {
   .article {
     .article-details {
-      margin-bottom: 6rem;
-      
-      .details-top {
-        margin-bottom: 2rem;
-      }
+      margin-top: 2rem;
     }
   }
 }

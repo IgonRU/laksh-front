@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LakshServiceGroupComponent } from "../service-group/service-group.component";
 import { LakshServiceGroup } from '../_classes/service-group.class';
+import { buildAssetUrl } from '../../../_helpers/asset-url.helper';
 
 @Component({
   selector: 'laksh-service-list',
@@ -10,73 +11,22 @@ import { LakshServiceGroup } from '../_classes/service-group.class';
   templateUrl: './service-list.component.html',
   styleUrl: './service-list.component.scss'
 })
-export class LakshServiceListComponent implements OnInit {
+export class LakshServiceListComponent implements OnChanges {
+  @Input() serviceGroups: LakshServiceGroup[] = [];
 
-  serviceGroups: LakshServiceGroup[] = [];
-  
   // Индекс открытой услуги для каждой группы (по умолчанию первая услуга в каждой группе)
   openServiceIndexes: number[] = [];
 
-  constructor() {
-    this.initializeServiceGroups();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['serviceGroups']) {
+      this.initializeOpenServiceIndexes();
+    }
   }
 
-  serviceGroupsJSON: any[] = [
-    {
-      title: 'Проектирование',
-      description: 'Мы создаем проект, который будет соответствовать вашим потребностям и ожиданиям.',
-      image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=2400&q=70',
-      services: [
-        {
-          title: 'Разработка концепции',
-          description: 'Мы создаем концепцию, которая будет соответствовать вашим потребностям и ожиданиям. Мы создаем концепцию, которая будет соответствовать вашим потребностям и ожиданиям. Мы создаем концепцию, которая будет соответствовать вашим потребностям и ожиданиям. Мы создаем концепцию, которая будет соответствовать вашим потребностям и ожиданиям.Мы создаем концепцию, которая будет соответствовать вашим потребностям и ожиданиям. Мы создаем концепцию, которая будет соответствовать вашим потребностям и ожиданиям.Мы создаем концепцию, которая будет соответствовать вашим потребностям и ожиданиям. Мы создаем концепцию, которая будет соответствовать вашим потребностям и ожиданиям.',
-          image: 'https://via.placeholder.com/1',
-          linkLabel: 'Подробнее про разработку концепции',
-          linkUrl: 'https://www.google.com'
-        },
-        {
-          title: 'Создание дендропроекта',
-          description: 'Мы создаем дендропроект, который будет соответствовать вашим потребностям и ожиданиям.',
-          image: 'https://via.placeholder.com/2',
-          linkLabel: 'Узнать что такое дендропроект',
-          linkUrl: 'https://www.google.com'
-        }
-      ]
-    },
-    {
-      title: 'Реализация',
-      description: 'В нашей компании работают специально подготовленные специалисты, которые смогут реализовать проект любой сложности.',
-      image: 'https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?auto=format&fit=crop&w=2400&q=70',
-      services: [
-        {
-          title: 'Подготовка документации',
-          description: 'Мы подготавливаем все необходимые документы для реализации проекта',
-          image: 'https://via.placeholder.com/1',
-          linkLabel: 'Подробнее',
-          linkUrl: 'https://www.google.com'
-        },
-        {
-          title: 'План работ и согласование',
-          description: 'При необходимости согласуем порядок и объем работы с смежными подрядчиками, работающими на объекте',
-          image: 'https://via.placeholder.com/2',
-          linkLabel: 'Подробнее',
-          linkUrl: 'https://www.google.com'
-        },
-        {
-          title: 'Реализация и гарантии',
-          description: 'Мы реализуем проект и предоставляем гарантии на выполненные работы',
-          image: 'https://via.placeholder.com/3',
-          linkLabel: 'Подробнее',
-          linkUrl: 'https://www.google.com'
-        }
-      ]
-    }
-  ];
-
-  private initializeServiceGroups(): void {
-    this.serviceGroups = this.serviceGroupsJSON.map(item => new LakshServiceGroup(item));
-    // Инициализируем открытые услуги - по умолчанию первая услуга (индекс 0) в каждой группе
-    this.openServiceIndexes = this.serviceGroups.map(() => 0);
+  private initializeOpenServiceIndexes(): void {
+    this.openServiceIndexes = (this.serviceGroups ?? []).map(group =>
+      group && group.services && group.services.length > 0 ? 0 : -1
+    );
   }
 
   /**
@@ -110,9 +60,7 @@ export class LakshServiceListComponent implements OnInit {
     return this.isServiceOpen.bind(this);
   }
 
-  ngOnInit(): void {
-    console.log('ngOnInit called');
-    // Дополнительная инициализация если нужна
+  getImageUrl(image?: string | null): string {
+    return buildAssetUrl(image ?? '');
   }
-
 }

@@ -6,7 +6,7 @@
         [class.odd]="groupIndex % 2 === 1">
         
         <div class="service-group-image">
-            <img [src]="serviceGroup.image" [alt]="serviceGroup.title" />
+            <img [src]="getImageUrl(serviceGroup.image)" [alt]="serviceGroup.title" />
         </div>
         
         <div class="service-group-content">

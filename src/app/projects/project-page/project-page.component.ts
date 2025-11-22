@@ -8,7 +8,7 @@ import { LakshProject } from './_classes/project.class';
 import { LeadContentComponent } from "../../_components/lead-content/lead-content.component";
 import { LakshProjectPageBlockComponent } from './project-page-block/project-page-block.component';
 import { LakshProjectsService } from '../projects.service';
-import { environment } from '../../../environments/environment';
+import { buildAssetUrl } from '../../_helpers';
 
 @Component({
   selector: 'laksh-project-page',
@@ -53,7 +53,7 @@ export class LakshProjectPageComponent implements OnInit {
   }
 
   getImageRoute(image: string): string {
-    return environment.backendHost + image;
+    return buildAssetUrl(image);
   }
 
   showPlantsTotal(): boolean {

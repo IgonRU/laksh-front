@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  padding: 2rem 0;
+}
+
+.service-page__state {
+  font-size: 1.125rem;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #2f2f2f;
+}
+
+.service-page__state--error {
+  color: #b23b3b;
+}
+
+

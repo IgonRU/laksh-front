@@ -1,0 +1,16 @@
+<div class="service-page">
+  <div *ngIf="isLoading" class="service-page__state">
+    Загружаем данные услуги…
+  </div>
+
+  <div *ngIf="hasError && !isLoading" class="service-page__state service-page__state--error">
+    Не удалось загрузить данные услуги. Попробуйте обновить страницу позже.
+  </div>
+
+  <laksh-article
+    *ngIf="serviceArticle && !isLoading"
+    [article]="serviceArticle">
+  </laksh-article>
+</div>
+
+
