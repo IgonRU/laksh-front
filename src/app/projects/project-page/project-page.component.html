@@ -42,15 +42,15 @@
                 </div>
               </div>
 
-              <div class="info-section">
+              <div *ngIf="showPlantsStats()" class="info-section">
                 <h3>Флора</h3>
                 <div class="plants-stats">
-                  <div class="total-plants">
+                  <div *ngIf="showPlantsTotal()" class="total-plants">
                     <span class="plants-label">Всего растений</span>
                     <span class="plants-number">{{ project.info.plantsTotal }}</span>
                   </div>
   
-                  <div class="plants-list" *ngIf="project.info.plantsList && project.info.plantsList.length > 0">
+                  <div class="plants-list" *ngIf="showPlantsList()">
                     <span class="plants-label">Базовые растения</span>
                     <ul class="features-list">
                       <li *ngFor="let plant of project.info.plantsList">{{ plant.name }}</li>

@@ -55,4 +55,16 @@ export class LakshProjectPageComponent implements OnInit {
   getImageRoute(image: string): string {
     return environment.backendHost + image;
   }
+
+  showPlantsTotal(): boolean {
+    return this.project?.info?.plantsTotal && this.project?.info?.plantsTotal > 0;
+  }
+
+  showPlantsList(): boolean {
+    return this.project?.info?.plantsList && this.project?.info?.plantsList.length > 0;
+  }
+
+  showPlantsStats(): boolean {
+    return this.showPlantsTotal() || this.showPlantsList();
+  }
 }
