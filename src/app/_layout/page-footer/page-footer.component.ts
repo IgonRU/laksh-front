@@ -29,7 +29,7 @@ import { BuildInfoComponent } from "../../_components/build-info/build-info.comp
   styleUrls: ['./page-footer.component.scss']
 })
 export class LakshPageFooterComponent {
-  backgroundImage = input<string>('url(https://images.unsplash.com/photo-1495954484750-af469f2f9be5?auto=format&fit=crop&w=2000&q=60)');
+  backgroundImage = input<string>('/assets/images/footer-images/footer-sea-downstairs.jpeg');
 
   currentYear = new Date().getFullYear();
 }
