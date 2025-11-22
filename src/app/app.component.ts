@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy, signal, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal, Inject, PLATFORM_ID, inject } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { PLATFORM_ID } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
