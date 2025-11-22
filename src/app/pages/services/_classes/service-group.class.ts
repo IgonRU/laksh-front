@@ -2,6 +2,7 @@ import { LakshService } from "./service.class";
 import { JsonInitializable } from "../../../_classes/json-initializable.class";
 
 export class LakshServiceGroup extends JsonInitializable {
+    alias: string;
     title: string;
     description: string;
     image?: string | null;

@@ -18,6 +18,10 @@ export class LakshHomepageService extends IgonHttpService {
   getMainpage(): Observable<IgonHttpResponse> {
     return this.simpleGet('/mainpage');
   }
+
+  getServicesStructure(): Observable<IgonHttpResponse> {
+    return this.simpleGet('/services');
+  }
 }
 
 

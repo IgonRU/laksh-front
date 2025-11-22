@@ -1,6 +1,6 @@
 <div *ngIf="serviceGroup" class="service-group-wrapper">
     <div class="service-group-title">
-        <h3>{{ serviceGroup.title }}</h3>
+        <h3 [id]="serviceGroup.alias">{{ serviceGroup.title }}</h3>
     </div>
     <div class="service-group-description">
         {{ serviceGroup.description }}

@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { LakshFixedBackgroundBlockComponent } from '../../_components/fixed-background-block/fixed-background-block.component';
 import { LakshMainpageSettings } from './_classes/mainpage.class';
 import { LakshHomepageService } from './homepage.service';
+import { LakshServiceGroup } from '../../pages/services/_classes/service-group.class';
 
 @Component({
   selector: 'laksh-homepage',
@@ -27,6 +28,7 @@ export class LakshHomepageComponent implements OnInit, AfterViewInit, OnDestroy 
   ;
 
   mainpageSettings: LakshMainpageSettings;
+  serviceGroups: LakshServiceGroup[] = [];
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -38,6 +40,7 @@ export class LakshHomepageComponent implements OnInit, AfterViewInit, OnDestroy 
       this.initGlobalStyles();
     }
     this.loadMainpageSettings();
+    this.loadServicesStructure();
   }
 
   ngAfterViewInit(): void {
@@ -159,6 +162,18 @@ export class LakshHomepageComponent implements OnInit, AfterViewInit, OnDestroy 
       },
       error: () => {
         this.mainpageSettings = new LakshMainpageSettings({ title: '', lead: '', portfolio: [], heroImages: [] });
+      }
+    });
+  }
+
+  private loadServicesStructure(): void {
+    this.homepageService.getServicesStructure().subscribe({
+      next: (res) => {
+        const groups = Array.isArray(res?.data) ? res.data : [];
+        this.serviceGroups = groups.map(group => new LakshServiceGroup(group));
+      },
+      error: () => {
+        this.serviceGroups = [];
       }
     });
   }

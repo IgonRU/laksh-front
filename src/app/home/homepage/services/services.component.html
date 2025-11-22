@@ -9,19 +9,18 @@
     </div>
   </div>
 
-  <div class="svc-row" *ngFor="let service of services" [class.reverse]="service.reverse">
+  <div class="svc-row" *ngFor="let serviceGroup of services; let i = index" [class.reverse]="i % 2 === 1">
     <div class="svc-img" 
-         [style.background-image]="'url(' + service.image + ')'"
-         [attr.aria-label]="service.imageAlt">
+         [style.background-image]="'url(' + getImageUrl(serviceGroup.image) + ')'"
+         [attr.aria-label]="serviceGroup.title">
     </div>
     <div class="svc-text px section-pad">
-      <h3>{{ service.title }}</h3>
+      <h3> <a [href]="'/services#' + serviceGroup.alias">{{ serviceGroup.title }}</a> </h3>
       <div class="description">
-        <p>{{ service.description }}</p>
+        <p>{{ serviceGroup.description }}</p>
         <ul class="svc-bullets">
-          <li *ngFor="let bullet of service.bullets">{{ bullet }}</li>
+          <li *ngFor="let service of serviceGroup.services">{{ service.title }}</li>
         </ul>
-        <div class="svc-note">{{ service.note }}</div>
       </div>
     </div>
   </div>
