@@ -1,14 +1,15 @@
-import { Component, OnInit, OnDestroy, signal, PLATFORM_ID, inject } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, OnDestroy, signal, Inject } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import {IgonResponsiveLayoutComponent} from "@igon/responsive-layout";
-import {LakshPageFooterComponent} from "./_layout/page-footer/page-footer.component";
-import {LakshPageHeaderComponent} from "./_layout/page-header/page-header.component";
-import {LakshHeaderMenuItem} from "./_layout/page-header/header-menu/header-menu-item.class";
-import {LakshMobileMenuComponent} from "./_layout/page-header/mobile-menu/mobile-menu.component";
-import {MobileMenuService} from "./_layout/page-header/mobile-menu/mobile-menu.service";
+import { IgonResponsiveLayoutComponent } from "@igon/responsive-layout";
+import { LakshPageFooterComponent } from "./_layout/page-footer/page-footer.component";
+import { LakshPageHeaderComponent } from "./_layout/page-header/page-header.component";
+import { LakshHeaderMenuItem } from "./_layout/page-header/header-menu/header-menu-item.class";
+import { LakshMobileMenuComponent } from "./_layout/page-header/mobile-menu/mobile-menu.component";
+import { MobileMenuService } from "./_layout/page-header/mobile-menu/mobile-menu.service";
 
 @Component({
   selector: 'app-root',
@@ -26,8 +27,16 @@ export class AppComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
   private platformId = inject(PLATFORM_ID);
   isMobileMenuOpen = signal(false);
-  
-  constructor(private mobileMenuService: MobileMenuService, private router: Router) {}
+  private readonly isBrowser: boolean;
+
+  constructor(
+    private mobileMenuService: MobileMenuService,
+    private router: Router,
+    @Inject(PLATFORM_ID) platformId: Object,
+    @Inject(DOCUMENT) private document: Document
+  ) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   menu: LakshHeaderMenuItem[] = [
     new LakshHeaderMenuItem({
@@ -95,6 +104,18 @@ export class AppComponent implements OnInit, OnDestroy {
               }
             }, 0);
           }
+          if (!this.isBrowser) { return; }
+          setTimeout(() => {
+            const layout = this.document.querySelector('igon-responsive-layout.layout-full') as HTMLElement | null;
+            if (layout && typeof layout.scrollTo === 'function') {
+              layout.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+            } else if (layout) {
+              (layout as any).scrollTop = 0;
+              (layout as any).scrollLeft = 0;
+            } else {
+              this.document.defaultView?.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+            }
+          }, 0);
         })
     );
   }
