@@ -6,6 +6,8 @@
 }
 
 .section-content {
+  overflow: hidden;
+  
   .block-description {
     font-size: 1rem;
     color: $color-text-dark;

@@ -25,4 +25,11 @@ export class LakshMobileMenuComponent {
   getRightColumn(): LakshHeaderMenuItem[] {
     return this.menu().slice(Math.ceil(this.menu().length / 2));
   }
+
+  onClick(item: LakshHeaderMenuItem): void {
+    // if (item.route?.includes('#')) {
+    //   this.router.navigate([item.route]);
+    // }
+    this.closeMenu.emit();
+  }
 }

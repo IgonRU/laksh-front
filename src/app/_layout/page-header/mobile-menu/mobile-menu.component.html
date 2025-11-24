@@ -23,7 +23,7 @@
       <div class="mobile-menu-section">
         <ul>
           <li *ngFor="let item of menu()">
-            <a [href]="item.route">{{ item.title }}</a>
+            <a [href]="item.route" (click)="onClick(item)">{{ item.title }}</a>
           </li>
         </ul>
       </div>

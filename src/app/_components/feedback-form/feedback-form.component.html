@@ -34,7 +34,7 @@
 
   <div class="form-group">
     <label class="form-label">
-      Здесь вы можете уточнить ваш запрос, а также указать удобный способ связи.
+      Уточните, чем мы можем быть полезны, а так же удобный способ связи
       <span class="required-star">*</span>
     </label>
     <textarea 
@@ -44,7 +44,7 @@
       rows="3"
       (blur)="onRequestBlur()"
       [class.error]="requestError"
-      placeholder="Опишите ваш запрос..."
+      placeholder="Чем мы можем Вам помочь?.."
       required></textarea>
     <div class="error-row">
       <div class="error-message" *ngIf="requestError">{{ requestError }}</div>
@@ -58,7 +58,7 @@
   <div class="form-error-global" *ngIf="errorMessage">{{ errorMessage }}</div>
 
   <button type="submit" class="submit-button">
-    ЗАКАЗАТЬ ЗВОНОК
+    ОТПРАВИТЬ СООБЩЕНИЕ
   </button>
 
   <div 
