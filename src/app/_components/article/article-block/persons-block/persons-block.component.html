@@ -29,8 +29,9 @@
               {{ person.role }}
             </div>
             
-            <div class="biography" *ngIf="person.biography">
-              {{ person.biography }}
+            <div class="biography" 
+              *ngIf="person.biography" 
+              [innerHTML]="person.biography">
             </div>
           </div>
           
